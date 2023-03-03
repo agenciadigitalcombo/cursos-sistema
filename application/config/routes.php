@@ -95,3 +95,7 @@ $route['my_bookings'] = "addons/tutor_booking/booked_schedules_student";
 //End tutor booking
 
 $route['translate_uri_dashes'] = FALSE;
+
+
+// payment page asaas
+$route['asaas/buy'] = "Asaas/buy";
