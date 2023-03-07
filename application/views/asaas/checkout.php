@@ -15,7 +15,8 @@ $method_card = true;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Efetuar Pagamento</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="<?php echo base_url("plugins/risecrm_asaas/assets/js/main.js") ?>"></script>
+
+    <script src="<?php echo site_url("assets/payment/js/main.js") ?>"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
         tailwind.config = {
@@ -44,9 +45,9 @@ $method_card = true;
             </div>
         <?php } ?>
         <span class="flex gap-2 justify-end">
-            Total: <strong>R$<?php echo number_format($total_payable_amount, 2, ',', '.')  ?></strong> 
+            Total: <strong>R$<?php echo number_format($total_payable_amount, 2, ',', '.')  ?></strong>
         </span>
-        
+
     </div>
 
     <form action="" class="w-[380px] mx-auto p-4 rounded shadow bg-[#F5F5F5]">
@@ -101,10 +102,10 @@ $method_card = true;
             <div class="w-full mb-1 px-3 md:w-2/2 lg:w-3/3">
                 <div>
                     <label class="block text-base font-medium text-black text-[12px] text-center pb-2">
-                        Informe os dados do cartão (Cartões Aceitos)
+                        Informe os dados do cartão <br> <small>(Cartões Aceitos)</small> 
                     </label>
                 </div>
-                <img src="<?php echo base_url("plugins/risecrm_asaas/assets/img/bandeiras-aceitas.png") ?>" class="w-full block" alt="bandeira">
+                <img src=" <?php echo site_url("assets/payment/img/bandeiras-aceitas.png") ?>" class="w-full block" alt="bandeira">
             </div>
 
             <div class="w-full md:w-2/2 lg:w-3/3 mb-2">
@@ -145,6 +146,37 @@ $method_card = true;
                         </label>
                         <div class="relative">
                             <input name="ccv" oninput="maskCvv(this)" placeholder="123" class="w-full rounded-md border border-danger py-3 pl-5 pr-12 text-black placeholder-[#929DA7] outline-none transition">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full mb-1 px-3 md:w-2/2 lg:w-3/3">
+                <div>
+                    <label class="block text-base font-medium text-black text-[12px] text-center pb-2">
+                        Informe o endereço
+                    </label>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 mb-4">
+                <div class="">
+                    <div class=" px-3">
+                        <label class=" block text-base font-medium text-black">
+                            CEP
+                        </label>
+                        <div class="relative">
+                            <input name="CEP" oninput="maskCep(this)" placeholder="00000-000" class="w-full rounded-md border border-danger py-3 pl-5 pr-12 text-black placeholder-[#929DA7] outline-none transition">
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class=" px-3">
+                        <label class=" block text-base font-medium text-black">
+                            Número
+                        </label>
+                        <div class="relative">
+                            <input name="numero_casa" type="number" placeholder="0" class="w-full rounded-md border border-danger py-3 pl-5 pr-12 text-black placeholder-[#929DA7] outline-none transition">
                         </div>
                     </div>
                 </div>

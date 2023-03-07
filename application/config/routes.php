@@ -99,3 +99,5 @@ $route['translate_uri_dashes'] = FALSE;
 
 // payment page asaas
 $route['asaas/buy'] = "Asaas/buy";
+$route['asaas/thank_you'] = "Asaas/thank_you";
+$route['webhook'] = "Asaas/webhook";

@@ -6,15 +6,16 @@ if (addon_status('affiliate_course')) {
     $CI    = &get_instance();
     $CI->load->model('addons/affiliate_course_model');
     $x = $CI->affiliate_course_model->is_affilator($this->session->userdata('user_id'));
-    if ($x == 1)
-    {
+    if ($x == 1) {
 
-    $payment_keys = json_decode($user_details['payment_keys'], true);
-    $paypal_keys = $payment_keys['paypal'];
-    $stripe_keys = $payment_keys['stripe'];
-    $razorpay_keys = $payment_keys['razorpay'];
+        $payment_keys = json_decode($user_details['payment_keys'], true);
+        $paypal_keys = $payment_keys['paypal'];
+        $stripe_keys = $payment_keys['stripe'];
+        $razorpay_keys = $payment_keys['razorpay'];
     }
 }
+
+var_dump($_SESSION);
 
 ?>
 
@@ -56,11 +57,23 @@ if (addon_status('affiliate_course')) {
                                 <input type="text" class="form-control" name="first_name" id="FristName" placeholder="<?php echo site_phrase('first_name'); ?>" value="<?php echo $user_details['first_name']; ?>">
                             </div>
                         </div>
-                        <div class="col-md-6">
+
+
+                        <div class="col-md-6" hidden>
                             <label class="text-dark fw-600" for="FristName"><?php echo site_phrase('last_name'); ?></label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                <input type="text" class="form-control" name="last_name" placeholder="<?php echo site_phrase('last_name'); ?>" value="<?php echo $user_details['last_name']; ?>">
+                                <input type="text" class="form-control" value=" " name="last_name" placeholder="<?php echo site_phrase('last_name'); ?>" value="<?php echo $user_details['last_name']; ?>">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="cpf">CPF</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white" for="cpf">
+                                    <i class="fas fa-id-card"></i>
+                                </span>
+                                <input type="text" value="" name="cpf" class="form-control" placeholder="000.000.000-00" id="cpf" disabled required>
                             </div>
                         </div>
 
@@ -85,71 +98,71 @@ if (addon_status('affiliate_course')) {
                             </div>
 
                             <?php if (addon_status('affiliate_course')) :
-                                    $CI    = &get_instance();
-                                    $CI->load->model('addons/affiliate_course_model');
-                                    $x = $CI->affiliate_course_model->is_affilator($this->session->userdata('user_id'));
-                                    if ($x == 1):
-                                    
-                                
-                                ?>
+                                $CI    = &get_instance();
+                                $CI->load->model('addons/affiliate_course_model');
+                                $x = $CI->affiliate_course_model->is_affilator($this->session->userdata('user_id'));
+                                if ($x == 1) :
 
 
-                                <div class="tab-pane" id="payment_info">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h4><?php echo get_phrase('paypal'); ?></h4>
-                                            <div class="form-group row mb-3">
-                                                <label class="col-md-3 col-form-label" for="facebook_link"> <?php echo get_phrase('paypal_client_id'); ?></label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="paypal_client_id" name="paypal_client_id" class="form-control" value="<?php echo $paypal_keys['production_client_id']; ?>">
-                                                    <small><?php echo get_phrase("required_for_getting_payment"); ?></small>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row mb-3">
-                                                <label class="col-md-3 col-form-label" for="facebook_link"> <?php echo get_phrase('paypal_secret_key'); ?></label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="paypal_secret_key" name="paypal_secret_key" class="form-control" value="<?php echo $paypal_keys['production_secret_key']; ?>">
-                                                    <small><?php echo get_phrase("required_for_getting_payment"); ?></small>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <h4><?php echo get_phrase('stripe'); ?></h4>
-                                            <div class="form-group row mb-3">
-                                                <label class="col-md-3 col-form-label" for="stripe_public_key"><?php echo get_phrase('stripe_public_key'); ?></label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="stripe_public_key" name="stripe_public_key" class="form-control" value="<?php echo $stripe_keys['public_live_key']; ?>">
-                                                    <small><?php echo get_phrase("required_for_getting_payment"); ?></small>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row mb-3">
-                                                <label class="col-md-3 col-form-label" for="stripe_secret_key"><?php echo get_phrase('stripe_secret_key'); ?></label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="stripe_secret_key" name="stripe_secret_key" class="form-control" value="<?php echo $stripe_keys['secret_live_key']; ?>">
-                                                    <small><?php echo get_phrase("required_for_getting_payment"); ?></small>
-                                                </div>
-                                            </div>
-
-                                            <hr>
-                                            <h4><?php echo get_phrase('razorpay'); ?></h4>
-                                            <div class="form-group row mb-3">
-                                                <label class="col-md-3 col-form-label" for="key_id"><?php echo get_phrase('key_id'); ?></label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="key_id" name="key_id" class="form-control" value="<?php echo $razorpay_keys['key_id']; ?>">
-                                                    <small><?php echo get_phrase("required_for_getting_payment"); ?></small>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row mb-3">
-                                                <label class="col-md-3 col-form-label" for="secret_key"><?php echo get_phrase('secret_key'); ?></label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="secret_key" name="secret_key" class="form-control" value="<?php echo $razorpay_keys['secret_key']; ?>">
-                                                    <small><?php echo get_phrase("required_for_getting_payment"); ?></small>
-                                                </div>
-                                            </div>
+                            ?>
 
 
-                                        </div> <!-- end col -->
-                                    </div> <!-- end row -->
-                                </div>
+                                    <div class="tab-pane" id="payment_info">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h4><?php echo get_phrase('paypal'); ?></h4>
+                                                <div class="form-group row mb-3">
+                                                    <label class="col-md-3 col-form-label" for="facebook_link"> <?php echo get_phrase('paypal_client_id'); ?></label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" id="paypal_client_id" name="paypal_client_id" class="form-control" value="<?php echo $paypal_keys['production_client_id']; ?>">
+                                                        <small><?php echo get_phrase("required_for_getting_payment"); ?></small>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mb-3">
+                                                    <label class="col-md-3 col-form-label" for="facebook_link"> <?php echo get_phrase('paypal_secret_key'); ?></label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" id="paypal_secret_key" name="paypal_secret_key" class="form-control" value="<?php echo $paypal_keys['production_secret_key']; ?>">
+                                                        <small><?php echo get_phrase("required_for_getting_payment"); ?></small>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <h4><?php echo get_phrase('stripe'); ?></h4>
+                                                <div class="form-group row mb-3">
+                                                    <label class="col-md-3 col-form-label" for="stripe_public_key"><?php echo get_phrase('stripe_public_key'); ?></label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" id="stripe_public_key" name="stripe_public_key" class="form-control" value="<?php echo $stripe_keys['public_live_key']; ?>">
+                                                        <small><?php echo get_phrase("required_for_getting_payment"); ?></small>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mb-3">
+                                                    <label class="col-md-3 col-form-label" for="stripe_secret_key"><?php echo get_phrase('stripe_secret_key'); ?></label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" id="stripe_secret_key" name="stripe_secret_key" class="form-control" value="<?php echo $stripe_keys['secret_live_key']; ?>">
+                                                        <small><?php echo get_phrase("required_for_getting_payment"); ?></small>
+                                                    </div>
+                                                </div>
+
+                                                <hr>
+                                                <h4><?php echo get_phrase('razorpay'); ?></h4>
+                                                <div class="form-group row mb-3">
+                                                    <label class="col-md-3 col-form-label" for="key_id"><?php echo get_phrase('key_id'); ?></label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" id="key_id" name="key_id" class="form-control" value="<?php echo $razorpay_keys['key_id']; ?>">
+                                                        <small><?php echo get_phrase("required_for_getting_payment"); ?></small>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mb-3">
+                                                    <label class="col-md-3 col-form-label" for="secret_key"><?php echo get_phrase('secret_key'); ?></label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" id="secret_key" name="secret_key" class="form-control" value="<?php echo $razorpay_keys['secret_key']; ?>">
+                                                        <small><?php echo get_phrase("required_for_getting_payment"); ?></small>
+                                                    </div>
+                                                </div>
+
+
+                                            </div> <!-- end col -->
+                                        </div> <!-- end row -->
+                                    </div>
 
                                 <?php endif; ?>
 

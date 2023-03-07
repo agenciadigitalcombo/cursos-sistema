@@ -1,0 +1,57 @@
+
+
+POST http://curso.test/webhook
+content-type: application/json
+
+{
+    "event": "PAYMENT_CREATED",
+    "payment": {
+        "object": "payment",
+        "id": "pay_1173605184047559",
+        "dateCreated": "2023-02-23",
+        "customer": "cus_000005147848",
+        "paymentLink": null,
+        "value": 200,
+        "netValue": 198.01,
+        "originalValue": null,
+        "interestValue": null,
+        "description": "Doação Unica",
+        "billingType": "PIX",
+        "pixTransaction": null,
+        "status": "PENDING",
+        "dueDate": "2023-03-02",
+        "originalDueDate": "2023-03-02",
+        "paymentDate": null,
+        "clientPaymentDate": null,
+        "installmentNumber": null,
+        "invoiceUrl": "https://sandbox.asaas.com/i/1173605184047559",
+        "invoiceNumber": "01931048",
+        "externalReference": "ref_63f7abdce3307",
+        "deleted": false,
+        "anticipated": false,
+        "anticipable": false,
+        "creditDate": null,
+        "estimatedCreditDate": null,
+        "transactionReceiptUrl": null,
+        "nossoNumero": null,
+        "bankSlipUrl": null,
+        "lastInvoiceViewedDate": null,
+        "lastBankSlipViewedDate": null,
+        "discount": {
+            "value": 0,
+            "limitDate": null,
+            "dueDateLimitDays": 0,
+            "type": "FIXED"
+        },
+        "fine": {
+            "value": 0,
+            "type": "FIXED"
+        },
+        "interest": {
+            "value": 0,
+            "type": "PERCENTAGE"
+        },
+        "postalService": false,
+        "refunds": null
+    }
+}
