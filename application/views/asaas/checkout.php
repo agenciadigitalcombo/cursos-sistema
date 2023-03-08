@@ -4,6 +4,8 @@ $method_pix = true;
 $method_boleto = true;
 $method_card = true;
 
+
+
 ?>
 
 <!DOCTYPE html>

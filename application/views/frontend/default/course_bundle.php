@@ -67,6 +67,7 @@
                                     </a>
                                     <div class="card-body">
                                         <div class="row course_bundle_box">
+                                            
                                             <!--total price corses on this bundle-->
                                             <?php $total_courses_price = 0; ?>
                                             <?php foreach($course_ids as $key => $course_id):
@@ -124,6 +125,7 @@
                                         <hr class="mt-1">
                                         <div class="row">
                                             <div class="col-md-12">
+                                                
                                                 <div class="w-50 float-start text-start text-muted text-12">
                                                     <?php //Bundle Rating
                                                         $ratings = $this->course_bundle_model->get_bundle_wise_ratings($bundle['id']);

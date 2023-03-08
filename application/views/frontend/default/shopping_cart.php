@@ -82,10 +82,12 @@
         $.ajax({
             url: '<?php echo site_url('home/isLoggedIn?url_history='.base64_encode(current_url())); ?>',
             success: function(response) {
+                
                 if (!response) {
                     window.location.replace("<?php echo site_url('login'); ?>");
                 } else if ("<?php echo $total_price; ?>" > 0) {
-                    window.location.replace("<?php echo site_url('home/course_payment'); ?>");
+                    // window.location.replace("<?php echo site_url('home/course_payment'); ?>");
+                    window.location.href = "<?php echo site_url('asaas/buy?type_curso=single'); ?>";
                 } else {
                     toastr.error('<?php echo site_phrase('there_are_no_courses_on_your_cart'); ?>');
                 }

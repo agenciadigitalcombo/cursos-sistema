@@ -1,6 +1,7 @@
 <script type="text/javascript">
 	"use strict";
 	function toggleBundleCourses(bundle_id, limit){
+		
 		if($('#course_of_bundle_'+bundle_id).html() == ''){
 			$('#gif_loader_'+bundle_id).html("<div class='w-100 py-4 my-2 text-center'><img class='w-20-px' src='<?= base_url('assets/global/gif/page-loader-2.gif'); ?>'></div>");
 			$.ajax({
@@ -9,6 +10,7 @@
 				success: function (response){
 					$('#gif_loader_'+bundle_id).hide();
 					$('#course_of_bundle_'+bundle_id).html(response);
+					console.log(response)
 				}
 			});
 		}
