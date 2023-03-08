@@ -23,6 +23,56 @@ class Asaas extends CI_Controller
         $payment_details = $this->session->userdata('payment_details');
 
 
+        
+        $query = $this->db->get_where('users', array('id' => $user_id));
+        $data_user_logged = (object) $query->result_array()[0];
+
+        
+        $cpf = $data_user_logged->cpf;
+        $external_id = $data_user_logged->external_id;
+        $customer_id = $data_user_logged->customer_id;
+       
+
+        if(!$customer_id) {
+
+            $external_id = "user_" . uniqid();
+            $customer_id = "cus_lkasjdaihsdklanslkdhakshndkl"; // response asa
+            
+            $this->db->where('id', $user_id);
+            $debug = $this->db->update('users', [
+                "external_id" => $external_id,
+                "customer_id" => $customer_id,
+            ]);
+
+        }
+
+        $response_asas = [];
+        $error = null;
+        
+        if( !empty($_POST) ) {
+            
+            // chama http asaas
+            $response_asas = [];
+            $error = "Cartão invalido";
+            
+            $tipo = "BOLETO";
+            $code = "0000 0000 0000 000 ";
+            $url = "http://google.com";
+
+            $_SESSION["invoice"] = [
+                "tipo" => $tipo,
+                "code" => $code,
+                "url" => $url,
+            ];
+            
+            // redirecionar a thank you
+        }
+
+        var_dump($_SESSION["invoice"]);
+        
+        $payment_details['response_asas'] = $response_asas;
+        $payment_details['error'] = $error;        
+
 
         $this->load->view('asaas/checkout', $payment_details);
     }

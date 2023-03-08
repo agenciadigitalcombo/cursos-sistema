@@ -52,7 +52,7 @@ $method_card = true;
 
     </div>
 
-    <form action="" class="w-[380px] mx-auto p-4 rounded shadow bg-[#F5F5F5]">
+    <form action="" method="POST" class="w-[380px] mx-auto p-4 rounded shadow bg-[#F5F5F5]">
 
         <div class="w-full mb-1 px-3 md:w-2/2 lg:w-3/3">
             <div>
@@ -185,9 +185,9 @@ $method_card = true;
             </div>
         </div>
         <input class="cursor-pointer block w-full  bg-green-600 mt-0 py-2 rounded-2xl hover:bg-green-700 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2" type="submit" value="Efetuar Pagamento">
-        <?php if ($isError) { ?>
+        <?php if ($error) { ?>
             <div class="block my-4 rounded text-center bg-[#C00] text-white py-2">
-                <?php echo $isError ?>
+                <?php echo $error ?>
             </div>
         <?php } ?>
     </form>
