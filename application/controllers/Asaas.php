@@ -4,16 +4,31 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Asaas extends CI_Controller
 {
 
+    public $split = [];
     public function __construct()
     {
         parent::__construct();
 
         $this->load->database();
         $this->load->library('session');
+        $this->load->library('AsaasApi');
 
 
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
         $this->output->set_header('Pragma: no-cache');
+    }
+
+    function addSplit( $carteira, $percent ) {
+
+        if(strlen($carteira) < 30) {
+            return null;
+        }
+        $percent = (float) str_replace(['%',' ',','],['', '','.'], $percent);
+        $this->split[] = [
+            "walletId" => $carteira,
+            "percentualValue" => $percent
+        ];
+        
     }
 
     function buy()
@@ -21,20 +36,17 @@ class Asaas extends CI_Controller
 
         $user_id = $this->session->userdata('user_id');
         $payment_details = [];
-        
-        
-        
-        
+
         $payment_details['total'] = 0;
         $payment_details['type_curso'] = $_GET['type_curso'] ?? 'single';
-        $payment_details['user_id'] = $user_id ;
+        $payment_details['user_id'] = $user_id;
         $payment_details['group_name'] = null;
         $payment_details['ids'] = null;
 
         $cart = [];
 
-        if( $payment_details['type_curso'] == 'single' ) {
-            foreach($_SESSION['cart_items'] as $ID ) {
+        if ($payment_details['type_curso'] == 'single') {
+            foreach ($_SESSION['cart_items'] as $ID) {
                 $select = $this->db->get_where('course', array('id' => $ID));
                 $data =  (object) $select->result_array()[0];
                 $cart[] = (object)[
@@ -47,17 +59,17 @@ class Asaas extends CI_Controller
             $payment_details['total'] = $_SESSION['total_price_of_checking_out'];
         }
 
-        if( $payment_details['type_curso'] == 'group' ) {
+        if ($payment_details['type_curso'] == 'group') {
             $groupId = $_GET['groupId'];
-            
+
             $select = $this->db->get_where('course_bundle', array('id' => $groupId));
             $data =  (object) $select->result_array()[0];
             $payment_details['total'] = $data->price;
             $cursos = json_decode($data->course_ids);
-           
+
             $payment_details['group_name'] = $data->title;
             $payment_details['ids'] = $groupId;
-            foreach($cursos as $ID ) {
+            foreach ($cursos as $ID) {
                 $select = $this->db->get_where('course', array('id' => $ID));
                 $data =  (object) $select->result_array()[0];
                 $cart[] = (object)[
@@ -68,43 +80,75 @@ class Asaas extends CI_Controller
                 ];
             }
         }
-        
-        $payment_details['cart'] = $cart ;
-        
+
+        $payment_details['cart'] = $cart;
+
 
         $query = $this->db->get_where('users', array('id' => $user_id));
         $data_user_logged = (object) $query->result_array()[0];
-        
+
         $query = $this->db->get_where('payment_gateways', array('identifier' => 'asaas'));
         $data_asass = (object) $query->result_array()[0];
-        $asass_keys = json_decode( $data_asass->keys, false );
+        $asass_keys = json_decode($data_asass->keys, false);
+
+        $sandBox = (bool) $data_asass->enabled_test_mode;
+        $token = null;
+        if($sandBox) {
+            $token = $asass_keys->token_sandbox;
+        }else{
+            $token = $asass_keys->token_production;
+        }
+
         
+
+        $this->addSplit($asass_keys->carteira_id_1, $asass_keys->split_percent_1);
+        $this->addSplit($asass_keys->carteira_id_2, $asass_keys->split_percent_2);
+        $this->addSplit($asass_keys->carteira_id_3, $asass_keys->split_percent_3);
+
+        ($sandBox);
+        ($token);
+        ($this->split);
+
         $cpf = $data_user_logged->cpf;
         $external_id = $data_user_logged->external_id;
-        $customer_id = $data_user_logged->customer_id;        
+        $customer_id = $data_user_logged->customer_id;
 
-        if(!$customer_id) {
+        
+
+        $this->asaasapi->sandbox = $sandBox;
+        $this->asaasapi->set_api_key($token);
+
+        
+        $user_name = $data_user_logged->first_name;
+        $user_cpf = $data_user_logged->cpf;
+        $user_cpf = preg_replace("/\D/i", "", $user_cpf );
+        
+
+        if (!$customer_id) {
+
+            $response_asaas = $this->asaasapi->createCustomerID($user_name, $user_cpf);
+
+            var_dump($response_asaas);
 
             $external_id = "user_" . uniqid();
-            $customer_id = "cus_lkasjdaihsdklanslkdhakshndkl"; // response asa
-            
+            $customer_id = $response_asaas["id"]; // response asa
+
             $this->db->where('id', $user_id);
             $debug = $this->db->update('users', [
                 "external_id" => $external_id,
                 "customer_id" => $customer_id,
             ]);
-
         }
 
         $response_asas = [];
         $error = null;
-        
-        if( !empty($_POST) ) {
-            
+
+        if (!empty($_POST)) {
+
             // chama http asaas
             $response_asas = [];
             $error = "Cartão invalido";
-            
+
             $tipo = "BOLETO";
             $code = "0000 0000 0000 000 ";
             $url = "http://google.com";
@@ -114,10 +158,10 @@ class Asaas extends CI_Controller
                 "code" => $code,
                 "url" => $url,
             ];
-            
+
             // redirecionar a thank you
         }
-        
+
         $payment_details['response_asas'] = $response_asas;
         $payment_details['error'] = $error;
 
@@ -149,7 +193,7 @@ class Asaas extends CI_Controller
             "code" => '',
             "ID" => $payload['payment']['id'] ?? "",
             "value" => $payload['payment']['value'] ?? "",
-        ];       
+        ];
 
         echo json_encode([
             "next" => true,
@@ -158,7 +202,8 @@ class Asaas extends CI_Controller
         ]);
     }
 
-    function thank_you() {
+    function thank_you()
+    {
         $this->load->view('asaas/thank_you', [
             "data_assas" => (object) [
                 "tipo_pagamento" => "CREDIT_CARD",

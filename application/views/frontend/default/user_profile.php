@@ -15,8 +15,6 @@ if (addon_status('affiliate_course')) {
     }
 }
 
-var_dump($_SESSION);
-
 ?>
 
 
@@ -73,7 +71,7 @@ var_dump($_SESSION);
                                 <span class="input-group-text bg-white" for="cpf">
                                     <i class="fas fa-id-card"></i>
                                 </span>
-                                <input type="text" value="" name="cpf" class="form-control" placeholder="000.000.000-00" id="cpf" disabled required>
+                                <input type="text" value="<?php echo $user_details['cpf'] ?>" name="cpf" class="form-control" placeholder="000.000.000-00" id="cpf" disabled required>
                             </div>
                         </div>
 

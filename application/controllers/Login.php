@@ -127,6 +127,7 @@ class Login extends CI_Controller
         $data['last_name']  = html_escape($this->input->post('last_name'));
         $data['email']  = html_escape($this->input->post('email'));
         $data['password']  = sha1($this->input->post('password'));
+        $data['cpf']  = $this->input->post('cpf');
 
         if (empty($data['first_name']) || empty($data['last_name']) || empty($data['email']) || empty($data['password'])) {
             $this->session->set_flashdata('error_message', site_phrase('your_sign_up_form_is_empty') . '. ' . site_phrase('fill_out_the_form with_your_valid_data'));
