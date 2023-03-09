@@ -26,6 +26,9 @@ class Asaas extends CI_Controller
         
         $total = $_SESSION['total_price_of_checking_out'];
         $payment_details['total'] = $total;
+        $payment_details['type_curso'] = $_REQUEST['type_curso'] ?? 'single';
+        $payment_details['user_id'] = $user_id ;
+
         
         var_dump($total);
         

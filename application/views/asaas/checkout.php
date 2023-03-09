@@ -51,7 +51,9 @@ $method_card = true;
 
     <form action="" method="POST" class="w-[380px] mx-auto p-4 rounded shadow bg-[#F5F5F5]">
 
-        <input type="text" value="<?php echo  $total?>">
+        <input type="text" name="total" value="<?php echo $total?>">
+        <input type="text" name="type_curso" value="<?php echo $type_curso?>">
+        <input type="text" name="user_id" value="<?php echo $user_id?>">
 
         <div class="w-full mb-1 px-3 md:w-2/2 lg:w-3/3">
             <div>
