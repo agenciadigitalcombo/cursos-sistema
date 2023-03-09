@@ -34,14 +34,25 @@ $method_card = true;
 <body class="bg-[#EEE] pt-8">
 
     <div class="w-[380px] mx-auto p-4 rounded shadow bg-[#F5F5F5] mb-[3px]">
-        <?php foreach ($items as $i) { ?>
-            <div class="flex justify-between gap-4 mb-[5px] border-b-2 pb-[5px] rounded">
-                <div class="flex gap-2">
-                    <img class="w-[30px] h-30px rounded" src="<?php echo $i['thumbnail'] ?>" alt="">
-                    <b class="w-auto"><?php echo $i['title'] ?></b>
+        <?php if( $type_curso == "single") { ?>
+            <?php foreach ($cart as $i) { ?>
+                <div class="flex justify-between gap-4 mb-[5px] border-b-2 pb-[5px] rounded">
+                    <div class="flex gap-2">
+                        <b class="w-auto"><?php echo $i->title ?></b>
+                    </div>
+                    <span class="w-60px">R$<?php echo number_format($i->price, 2, ',', '.')  ?></span>
                 </div>
-                <span class="w-60px">R$<?php echo number_format($i['actual_price'], 2, ',', '.')  ?></span>
-            </div>
+            <?php } ?>
+        <?php } ?>
+        <?php if( $type_curso == "group") { ?>
+            
+                <div class="flex justify-between gap-4 mb-[5px] border-b-2 pb-[5px] rounded">
+                    <div class="flex gap-2">
+                        <b class="w-auto"><?php echo $group_name ?></b>
+                    </div>
+                    <span class="w-60px"></span>
+                </div>
+            
         <?php } ?>
         <span class="flex gap-2 justify-end">
             Total: <strong>R$<?php echo number_format($total, 2, ',', '.')  ?></strong>

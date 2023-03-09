@@ -24,14 +24,54 @@ class Asaas extends CI_Controller
         
         
         
-        $total = $_SESSION['total_price_of_checking_out'];
-        $payment_details['total'] = $total;
-        $payment_details['type_curso'] = $_REQUEST['type_curso'] ?? 'single';
+        
+        $payment_details['total'] = 0;
+        $payment_details['type_curso'] = $_GET['type_curso'] ?? 'single';
         $payment_details['user_id'] = $user_id ;
+        $payment_details['group_name'] = null;
+        $payment_details['ids'] = null;
 
+        $cart = [];
+
+        if( $payment_details['type_curso'] == 'single' ) {
+            foreach($_SESSION['cart_items'] as $ID ) {
+                $select = $this->db->get_where('course', array('id' => $ID));
+                $data =  (object) $select->result_array()[0];
+                $cart[] = (object)[
+                    "id" => $ID,
+                    "price" => $data->price,
+                    "title" => $data->title,
+                    "thumbnail" => null,
+                ];
+            }
+            $payment_details['total'] = $_SESSION['total_price_of_checking_out'];
+        }
+
+        if( $payment_details['type_curso'] == 'group' ) {
+            $groupId = $_GET['groupId'];
+            
+            $select = $this->db->get_where('course_bundle', array('id' => $groupId));
+            $data =  (object) $select->result_array()[0];
+            $payment_details['total'] = $data->price;
+            $cursos = json_decode($data->course_ids);
+           
+            $payment_details['group_name'] = $data->title;
+            $payment_details['ids'] = $groupId;
+            foreach($cursos as $ID ) {
+                $select = $this->db->get_where('course', array('id' => $ID));
+                $data =  (object) $select->result_array()[0];
+                $cart[] = (object)[
+                    "id" => $ID,
+                    "price" => $data->price,
+                    "title" => $data->title,
+                    "thumbnail" => null,
+                ];
+            }
+        }
         
-        var_dump($total);
+        $payment_details['cart'] = $cart ;
         
+
         $query = $this->db->get_where('users', array('id' => $user_id));
         $data_user_logged = (object) $query->result_array()[0];
         
