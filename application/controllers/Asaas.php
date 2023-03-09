@@ -20,18 +20,25 @@ class Asaas extends CI_Controller
     {
 
         $user_id = $this->session->userdata('user_id');
-        $payment_details = $this->session->userdata('payment_details');
-
-
+        $payment_details = [];
+        
+        
+        
+        $total = $_SESSION['total_price_of_checking_out'];
+        $payment_details['total'] = $total;
+        
+        var_dump($total);
         
         $query = $this->db->get_where('users', array('id' => $user_id));
         $data_user_logged = (object) $query->result_array()[0];
-
+        
+        $query = $this->db->get_where('payment_gateways', array('identifier' => 'asaas'));
+        $data_asass = (object) $query->result_array()[0];
+        $asass_keys = json_decode( $data_asass->keys, false );
         
         $cpf = $data_user_logged->cpf;
         $external_id = $data_user_logged->external_id;
-        $customer_id = $data_user_logged->customer_id;
-       
+        $customer_id = $data_user_logged->customer_id;        
 
         if(!$customer_id) {
 
@@ -67,12 +74,9 @@ class Asaas extends CI_Controller
             
             // redirecionar a thank you
         }
-
-        var_dump($_SESSION["invoice"]);
         
         $payment_details['response_asas'] = $response_asas;
-        $payment_details['error'] = $error;        
-
+        $payment_details['error'] = $error;
 
         $this->load->view('asaas/checkout', $payment_details);
     }

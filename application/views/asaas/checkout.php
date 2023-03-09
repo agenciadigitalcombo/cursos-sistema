@@ -4,8 +4,6 @@ $method_pix = true;
 $method_boleto = true;
 $method_card = true;
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +33,6 @@ $method_card = true;
 
 <body class="bg-[#EEE] pt-8">
 
-
     <div class="w-[380px] mx-auto p-4 rounded shadow bg-[#F5F5F5] mb-[3px]">
         <?php foreach ($items as $i) { ?>
             <div class="flex justify-between gap-4 mb-[5px] border-b-2 pb-[5px] rounded">
@@ -47,12 +44,14 @@ $method_card = true;
             </div>
         <?php } ?>
         <span class="flex gap-2 justify-end">
-            Total: <strong>R$<?php echo number_format($total_payable_amount, 2, ',', '.')  ?></strong>
+            Total: <strong>R$<?php echo number_format($total, 2, ',', '.')  ?></strong>
         </span>
 
     </div>
 
     <form action="" method="POST" class="w-[380px] mx-auto p-4 rounded shadow bg-[#F5F5F5]">
+
+        <input type="text" value="<?php echo  $total?>">
 
         <div class="w-full mb-1 px-3 md:w-2/2 lg:w-3/3">
             <div>
@@ -61,8 +60,6 @@ $method_card = true;
                 </label>
             </div>
         </div>
-
-
 
         <ul class="flex gap-2 max-w-md mx-auto">
             <?php if ($method_pix) { ?>
