@@ -64,6 +64,7 @@ class Asaas extends CI_Controller
 
             $select = $this->db->get_where('course_bundle', array('id' => $groupId));
             $data =  (object) $select->result_array()[0];
+            $creator_id = $data->user_id;
             $payment_details['total'] = $data->price;
             $cursos = json_decode($data->course_ids);
 
@@ -105,10 +106,6 @@ class Asaas extends CI_Controller
         $this->addSplit($asass_keys->carteira_id_2, $asass_keys->split_percent_2);
         $this->addSplit($asass_keys->carteira_id_3, $asass_keys->split_percent_3);
 
-        ($sandBox);
-        ($token);
-        ($this->split);
-
         $cpf = $data_user_logged->cpf;
         $external_id = $data_user_logged->external_id;
         $customer_id = $data_user_logged->customer_id;
@@ -135,7 +132,7 @@ class Asaas extends CI_Controller
             $customer_id = $response_asaas["id"]; // response asa
 
             $this->db->where('id', $user_id);
-            $debug = $this->db->update('users', [
+            $this->db->update('users', [
                 "external_id" => $external_id,
                 "customer_id" => $customer_id,
             ]);
@@ -231,16 +228,59 @@ class Asaas extends CI_Controller
                     "code" => $code_assas,
                     "url" => $url_assas,
                 ];
-                
+
                 // salva invoice
+
+                $this->db->insert('invoices', [
+                    "users_id" => $user_id,
+                    "invoice_id" => $payment_id,
+                    "invoice_ref" => $external_id,
+                    "invoice_url" => $url_assas,
+                    "invoice_code" => $code_assas,
+                    "invoice_status" => $res_asaas_transation["status"],
+                    "type_curso" => $payment_details['type_curso'],
+                    "payment_type" => $res_asaas_transation["billingType"],
+                    "course_id" => $cart[0]['id'],
+                    "amount" => $payment_amount,
+                    "date_added" => time(),
+                    "last_modified" => time(),
+                    "admin_revenue" => null,
+                    "instructor_revenue" => null,
+                    "tax" => 0,
+                    "instructor_payment_status" => null,
+                    "transaction_id" => $payment_id,
+                    "session_id" => '',
+                    "coupon" => $_SESSION['applied_coupon'] ?? '',
+                    "bundle_creator_id" => $creator_id ?? 1,
+                    "bundle_id" => $groupId,
+                ]);
+
+                $this->db->insert('invoices', [
+                    "users_id" => $user_id ?? '',
+                    "invoice_id" => $payment_id ?? '',
+                    "invoice_ref" => $external_id ?? '',
+                    "invoice_url" => $url_assas ?? '',
+                    "invoice_code" => $code_assas ?? '',
+                    "invoice_status" => $res_asaas_transation["status"] ?? '',
+                    "type_curso" => $payment_details['type_curso'] ?? '',
+                    "payment_type" => $res_asaas_transation["billingType"] ?? '',
+                    "course_id" => $cart[0]->id ?? '',
+                    "amount" => $payment_amount ?? '',
+                    "date_added" => time(),
+                    "last_modified" => time(),
+                    "admin_revenue" => null,
+                    "instructor_revenue" => null,
+                    "tax" => 0,
+                    "instructor_payment_status" => null,
+                    "transaction_id" => $payment_id ?? '',
+                    "session_id" => '',
+                    "coupon" => $_SESSION['applied_coupon'] ?? '',
+                    "bundle_creator_id" => $creator_id ?? 1,
+                    "bundle_id" => $groupId ?? '',
+                ]);
 
                 redirect(site_url('asaas/thank_you'), 'refresh');
             }
-
-
-            // redirecionar a thank you
-
-            print_r($_SESSION);
         }
 
         $payment_details['response_asas'] = $response_asas;
