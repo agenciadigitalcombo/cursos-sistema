@@ -123,7 +123,7 @@ class Asaas extends CI_Controller
         $user_email = $data_user_logged->email;
         $user_cpf = $data_user_logged->cpf;
         $user_cpf = preg_replace("/\D/i", "", $user_cpf);
-        
+
 
 
         if (!$customer_id) {
@@ -147,7 +147,7 @@ class Asaas extends CI_Controller
 
             // chama http asaas
             $res_asaas_transation = [];
-            $external_id = "user_" . uniqid();
+            $external_id = "course_" . uniqid();
             $payment_amount = $_POST['total'];
             $telefone = '';
 
@@ -158,7 +158,9 @@ class Asaas extends CI_Controller
             $numero_casa = $_POST['numero_casa'];
             $tipo_pagamento = $_POST['tipo_pagamento'];
             $seven_day = date('Y-m-d', strtotime('+7 days', strtotime(date('Y-m-d'))));
-            $due_date = $tipo_pagamento == "CREDIT_CARD" ? date('Y-m-d') : $seven_day ;
+            $due_date = $tipo_pagamento == "CREDIT_CARD" ? date('Y-m-d') : $seven_day;
+
+
 
             if ($payment_details['type_curso'] == 'single') {
                 $res_asaas_transation = $this->asaasapi->single(
@@ -180,7 +182,6 @@ class Asaas extends CI_Controller
                     $due_date,
                     $this->split
                 );
-                
             } else {
                 $res_asaas_transation = $this->asaasapi->signature(
                     $external_id,
@@ -201,25 +202,43 @@ class Asaas extends CI_Controller
                     $due_date,
                     $this->split
                 );
-                
             }
 
-            echo json_encode($res_asaas_transation);
+            $error = $res_asaas_transation["errors"][0]["description"] ?? false;
 
-            $response_asas = [];
-            $error = "Cartão invalido";
+            $url_assas  = null;
+            $code_assas = null;
 
-            $tipo = "BOLETO";
-            $code = "0000 0000 0000 000 ";
-            $url = "http://google.com";
+            if (!$error) {
+
+                $payment_id = $res_asaas_transation["id"];
+                $url_assas =  $res_asaas_transation["invoiceUrl"];
+                $code_assas = '';
+
+                if ($_POST['tipo_pagamento'] == 'PIX') {
+                    $code_assas = $this->asaasapi->getCodePix($payment_id);
+                    $code_assas = $code_assas["payload"];
+                }
+
+                if ($_POST['tipo_pagamento'] == 'BOLETO') {
+                    $code_assas = $this->asaasapi->getBarcodeBoleto($payment_id);
+                    $code_assas = $code_assas["barCode"];
+                    $url_assas = $res_asaas_transation["bankSlipUrl"];
+                }
+
+                // salva invoice
+
+            }
 
             $_SESSION["invoice"] = [
-                "tipo" => $tipo,
-                "code" => $code,
-                "url" => $url,
+                "tipo" => $tipo_pagamento,
+                "code" => $code_assas,
+                "url" => $url_assas,
             ];
 
             // redirecionar a thank you
+
+            print_r($_SESSION);
         }
 
         $payment_details['response_asas'] = $response_asas;
