@@ -202,6 +202,11 @@ $method_card = true;
         <?php } ?>
     </form>
 
+    <script>
+        let data = <?php echo json_encode([
+            "nome" => "bruno"
+        ])?>
+    </script>
 
 
 </body>
