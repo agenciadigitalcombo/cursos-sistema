@@ -161,26 +161,6 @@ class Asaas extends CI_Controller
             $due_date = $tipo_pagamento == "CREDIT_CARD" ? date('Y-m-d') : $seven_day ;
 
             if ($payment_details['type_curso'] == 'single') {
-                $res_asaas_transation = $this->asaasapi->signature(
-                    $external_id,
-                    $tipo_pagamento,
-                    $customer_id,
-                    $payment_amount,
-                    $user_name,
-                    $numero,
-                    $vencimento,
-                    $ccv,
-                    $user_name,
-                    $user_cpf,
-                    $telefone,
-                    $user_email,
-                    $cep,
-                    $numero_casa,
-                    '',
-                    $due_date,
-                    $this->split
-                );
-            } else {
                 $res_asaas_transation = $this->asaasapi->single(
                     $external_id,
                     $tipo_pagamento,
@@ -200,9 +180,31 @@ class Asaas extends CI_Controller
                     $due_date,
                     $this->split
                 );
+                
+            } else {
+                $res_asaas_transation = $this->asaasapi->signature(
+                    $external_id,
+                    $tipo_pagamento,
+                    $customer_id,
+                    $payment_amount,
+                    $user_name,
+                    $numero,
+                    $vencimento,
+                    $ccv,
+                    $user_name,
+                    $user_cpf,
+                    $telefone,
+                    $user_email,
+                    $cep,
+                    $numero_casa,
+                    '',
+                    $due_date,
+                    $this->split
+                );
+                
             }
 
-            var_dump($res_asaas_transation);
+            echo json_encode($res_asaas_transation);
 
             $response_asas = [];
             $error = "Cartão invalido";
