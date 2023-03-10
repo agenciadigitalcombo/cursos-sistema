@@ -232,30 +232,6 @@ class Asaas extends CI_Controller
                 // salva invoice
 
                 $this->db->insert('invoices', [
-                    "users_id" => $user_id,
-                    "invoice_id" => $payment_id,
-                    "invoice_ref" => $external_id,
-                    "invoice_url" => $url_assas,
-                    "invoice_code" => $code_assas,
-                    "invoice_status" => $res_asaas_transation["status"],
-                    "type_curso" => $payment_details['type_curso'],
-                    "payment_type" => $res_asaas_transation["billingType"],
-                    "course_id" => $cart[0]['id'],
-                    "amount" => $payment_amount,
-                    "date_added" => time(),
-                    "last_modified" => time(),
-                    "admin_revenue" => null,
-                    "instructor_revenue" => null,
-                    "tax" => 0,
-                    "instructor_payment_status" => null,
-                    "transaction_id" => $payment_id,
-                    "session_id" => '',
-                    "coupon" => $_SESSION['applied_coupon'] ?? '',
-                    "bundle_creator_id" => $creator_id ?? 1,
-                    "bundle_id" => $groupId,
-                ]);
-
-                $this->db->insert('invoices', [
                     "users_id" => $user_id ?? '',
                     "invoice_id" => $payment_id ?? '',
                     "invoice_ref" => $external_id ?? '',
