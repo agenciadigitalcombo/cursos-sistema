@@ -226,15 +226,17 @@ class Asaas extends CI_Controller
                     $url_assas = $res_asaas_transation["bankSlipUrl"];
                 }
 
+                $_SESSION["invoice"] = [
+                    "tipo" => $tipo_pagamento,
+                    "code" => $code_assas,
+                    "url" => $url_assas,
+                ];
+                
                 // salva invoice
 
+                redirect(site_url('asaas/thank_you'), 'refresh');
             }
 
-            $_SESSION["invoice"] = [
-                "tipo" => $tipo_pagamento,
-                "code" => $code_assas,
-                "url" => $url_assas,
-            ];
 
             // redirecionar a thank you
 
@@ -283,11 +285,12 @@ class Asaas extends CI_Controller
 
     function thank_you()
     {
+
         $this->load->view('asaas/thank_you', [
             "data_assas" => (object) [
-                "tipo_pagamento" => "CREDIT_CARD",
-                "code" => "00000 000000 00000 00000",
-                "url" => "http://google.com"
+                "tipo_pagamento" =>  $_SESSION["invoice"]['tipo'],
+                "code" =>  $_SESSION["invoice"]['code'],
+                "url" =>  $_SESSION["invoice"]['url'],
             ]
         ]);
     }
