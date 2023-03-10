@@ -18,17 +18,17 @@ class Asaas extends CI_Controller
         $this->output->set_header('Pragma: no-cache');
     }
 
-    function addSplit( $carteira, $percent ) {
+    function addSplit($carteira, $percent)
+    {
 
-        if(strlen($carteira) < 30) {
+        if (strlen($carteira) < 30) {
             return null;
         }
-        $percent = (float) str_replace(['%',' ',','],['', '','.'], $percent);
+        $percent = (float) str_replace(['%', ' ', ','], ['', '', '.'], $percent);
         $this->split[] = [
             "walletId" => $carteira,
             "percentualValue" => $percent
         ];
-        
     }
 
     function buy()
@@ -93,13 +93,13 @@ class Asaas extends CI_Controller
 
         $sandBox = (bool) $data_asass->enabled_test_mode;
         $token = null;
-        if($sandBox) {
+        if ($sandBox) {
             $token = $asass_keys->token_sandbox;
-        }else{
+        } else {
             $token = $asass_keys->token_production;
         }
 
-        
+
 
         $this->addSplit($asass_keys->carteira_id_1, $asass_keys->split_percent_1);
         $this->addSplit($asass_keys->carteira_id_2, $asass_keys->split_percent_2);
@@ -113,22 +113,22 @@ class Asaas extends CI_Controller
         $external_id = $data_user_logged->external_id;
         $customer_id = $data_user_logged->customer_id;
 
-        
+
 
         $this->asaasapi->sandbox = $sandBox;
         $this->asaasapi->set_api_key($token);
 
-        
+
         $user_name = $data_user_logged->first_name;
+        $user_email = $data_user_logged->email;
         $user_cpf = $data_user_logged->cpf;
-        $user_cpf = preg_replace("/\D/i", "", $user_cpf );
+        $user_cpf = preg_replace("/\D/i", "", $user_cpf);
         
+
 
         if (!$customer_id) {
 
             $response_asaas = $this->asaasapi->createCustomerID($user_name, $user_cpf);
-
-            var_dump($response_asaas);
 
             $external_id = "user_" . uniqid();
             $customer_id = $response_asaas["id"]; // response asa
@@ -146,6 +146,64 @@ class Asaas extends CI_Controller
         if (!empty($_POST)) {
 
             // chama http asaas
+            $res_asaas_transation = [];
+            $external_id = "user_" . uniqid();
+            $payment_amount = $_POST['total'];
+            $telefone = '';
+
+            $numero = $_POST['numero'];
+            $vencimento = $_POST['vencimento'];
+            $ccv = $_POST['ccv'];
+            $cep = $_POST['CEP'];
+            $numero_casa = $_POST['numero_casa'];
+            $tipo_pagamento = $_POST['tipo_pagamento'];
+            $seven_day = date('Y-m-d', strtotime('+7 days', strtotime(date('Y-m-d'))));
+            $due_date = $tipo_pagamento == "CREDIT_CARD" ? date('Y-m-d') : $seven_day ;
+
+            if ($payment_details['type_curso'] == 'single') {
+                $res_asaas_transation = $this->asaasapi->signature(
+                    $external_id,
+                    $tipo_pagamento,
+                    $customer_id,
+                    $payment_amount,
+                    $user_name,
+                    $numero,
+                    $vencimento,
+                    $ccv,
+                    $user_name,
+                    $user_cpf,
+                    $telefone,
+                    $user_email,
+                    $cep,
+                    $numero_casa,
+                    '',
+                    $due_date,
+                    $this->split
+                );
+            } else {
+                $res_asaas_transation = $this->asaasapi->single(
+                    $external_id,
+                    $tipo_pagamento,
+                    $customer_id,
+                    $payment_amount,
+                    $user_name,
+                    $numero,
+                    $vencimento,
+                    $ccv,
+                    $user_name,
+                    $user_cpf,
+                    $telefone,
+                    $user_email,
+                    $cep,
+                    $numero_casa,
+                    '',
+                    $due_date,
+                    $this->split
+                );
+            }
+
+            var_dump($res_asaas_transation);
+
             $response_asas = [];
             $error = "Cartão invalido";
 
