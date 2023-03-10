@@ -45,6 +45,16 @@
                 <input type="text" value="" name="cpf" class="form-control" placeholder="000.000.000-00" id="cpf" required>
               </div>
             </div>
+            
+            <div class="form-group">
+              <label for="phone">Telefone <small>(com DDD)</small> </label>
+              <div class="input-group">
+                <span class="input-group-text bg-white" for="phone">
+                  <i class="fas fa-phone"></i>
+                </span>
+                <input type="text" value="" name="phone" class="form-control" placeholder="(00) 0 0000-0000" id="phone" required>
+              </div>
+            </div>
 
             <div class="form-group">
               <label for="registration-email"><?php echo site_phrase('email'); ?></label>

@@ -1,6 +1,7 @@
 ALTER TABLE users
 ADD COLUMN card_token varchar(255),
 ADD COLUMN cpf varchar(255),
+ADD COLUMN phone varchar(255),
 ADD COLUMN customer_id varchar(255);
 
 CREATE TABLE invoices (

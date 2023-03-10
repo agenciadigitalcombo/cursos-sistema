@@ -187,6 +187,7 @@ class User_model extends CI_Model
             $social_link['linkedin'] = html_escape($this->input->post('linkedin_link'));
             $data['social_links'] = json_encode($social_link);
             $data['biography'] = $this->input->post('biography');
+            $data['phone'] = $this->input->post('phone');
             $data['title'] = html_escape($this->input->post('title'));
             $data['skills'] = html_escape($this->input->post('skills'));
             $data['last_modified'] = strtotime(date("Y-m-d H:i:s"));

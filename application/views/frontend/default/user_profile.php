@@ -48,7 +48,7 @@ if (addon_status('affiliate_course')) {
                             <p><?php echo site_phrase('add_information_about_yourself_to_share_on_your_profile'); ?></p>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <label class="text-dark fw-600" for="FristName"><?php echo site_phrase('first_name'); ?></label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -72,6 +72,16 @@ if (addon_status('affiliate_course')) {
                                     <i class="fas fa-id-card"></i>
                                 </span>
                                 <input type="text" value="<?php echo $user_details['cpf'] ?>" name="cpf" class="form-control" placeholder="000.000.000-00" id="cpf" disabled required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="phone">Telefone <small>(com DDD)</small></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white" for="phone">
+                                    <i class="fas fa-phone"></i>
+                                </span>
+                                <input type="text" value="<?php echo $user_details['phone'] ?>" name="phone" class="form-control" placeholder="(00) 0 0000-0000" id="phone" required>
                             </div>
                         </div>
 

@@ -121,6 +121,7 @@ class Asaas extends CI_Controller
 
         $user_name = $data_user_logged->first_name;
         $user_email = $data_user_logged->email;
+        $user_phone = $data_user_logged->phone;
         $user_cpf = $data_user_logged->cpf;
         $user_cpf = preg_replace("/\D/i", "", $user_cpf);
 
@@ -145,11 +146,10 @@ class Asaas extends CI_Controller
 
         if (!empty($_POST)) {
 
-            // chama http asaas
             $res_asaas_transation = [];
             $external_id = "course_" . uniqid();
             $payment_amount = $_POST['total'];
-            $telefone = '';
+            $telefone = $user_phone;
 
             $numero = $_POST['numero'];
             $vencimento = $_POST['vencimento'];
