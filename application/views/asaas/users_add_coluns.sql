@@ -14,7 +14,7 @@ CREATE TABLE invoices (
     invoice_status varchar(255),
     type_curso varchar(255),
     payment_type varchar(255),
-    course_id int,
+    course_id varchar(255),
     amount float,
     date_added int,
     last_modified int,

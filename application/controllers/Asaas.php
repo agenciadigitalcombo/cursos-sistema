@@ -84,7 +84,6 @@ class Asaas extends CI_Controller
 
         $payment_details['cart'] = $cart;
 
-
         $query = $this->db->get_where('users', array('id' => $user_id));
         $data_user_logged = (object) $query->result_array()[0];
 
@@ -100,8 +99,6 @@ class Asaas extends CI_Controller
             $token = $asass_keys->token_production;
         }
 
-
-
         $this->addSplit($asass_keys->carteira_id_1, $asass_keys->split_percent_1);
         $this->addSplit($asass_keys->carteira_id_2, $asass_keys->split_percent_2);
         $this->addSplit($asass_keys->carteira_id_3, $asass_keys->split_percent_3);
@@ -110,19 +107,14 @@ class Asaas extends CI_Controller
         $external_id = $data_user_logged->external_id;
         $customer_id = $data_user_logged->customer_id;
 
-
-
         $this->asaasapi->sandbox = $sandBox;
         $this->asaasapi->set_api_key($token);
-
 
         $user_name = $data_user_logged->first_name;
         $user_email = $data_user_logged->email;
         $user_phone = $data_user_logged->phone;
         $user_cpf = $data_user_logged->cpf;
         $user_cpf = preg_replace("/\D/i", "", $user_cpf);
-
-
 
         if (!$customer_id) {
 
@@ -156,8 +148,6 @@ class Asaas extends CI_Controller
             $tipo_pagamento = $_POST['tipo_pagamento'];
             $seven_day = date('Y-m-d', strtotime('+7 days', strtotime(date('Y-m-d'))));
             $due_date = $tipo_pagamento == "CREDIT_CARD" ? date('Y-m-d') : $seven_day;
-
-
 
             if ($payment_details['type_curso'] == 'single') {
                 $res_asaas_transation = $this->asaasapi->single(
@@ -229,7 +219,7 @@ class Asaas extends CI_Controller
                     "url" => $url_assas,
                 ];
 
-                // salva invoice
+                $course_ids = json_encode($_SESSION['cart_items'] ?? []);
 
                 $this->db->insert('invoices', [
                     "users_id" => $user_id ?? '',
@@ -240,7 +230,7 @@ class Asaas extends CI_Controller
                     "invoice_status" => $res_asaas_transation["status"] ?? '',
                     "type_curso" => $payment_details['type_curso'] ?? '',
                     "payment_type" => $res_asaas_transation["billingType"] ?? '',
-                    "course_id" => $cart[0]->id ?? '',
+                    "course_id" =>  $course_ids,
                     "amount" => $payment_amount ?? '',
                     "date_added" => time(),
                     "last_modified" => time(),
@@ -254,6 +244,14 @@ class Asaas extends CI_Controller
                     "bundle_creator_id" => $creator_id ?? 1,
                     "bundle_id" => $groupId ?? '',
                 ]);
+
+                if ($res_asaas_transation["billingType"] == "CREDIT_CARD") {
+                    $this->success_course_payment($external_id);
+                    $this->db->where('id', $user_id);
+                    $this->db->update('users', [
+                        "card_token" => $res_asaas_transation['creditCard']['creditCardToken'] ?? '',                        
+                    ]);
+                }
 
                 redirect(site_url('asaas/thank_you'), 'refresh');
             }
@@ -292,6 +290,10 @@ class Asaas extends CI_Controller
             "value" => $payload['payment']['value'] ?? "",
         ];
 
+        if (in_array($data["status"], ["CONFIRMED", "RECEIVED"])) {
+            $this->success_course_payment($data["reference_key"]);
+        }
+
         echo json_encode([
             "next" => true,
             "message" => "WebHook recebido com sucesso",
@@ -311,40 +313,68 @@ class Asaas extends CI_Controller
         ]);
     }
 
-    function success_course_payment($payment_method = "")
+    function success_course_payment($external_id = null)
     {
-        //STARTED payment model and functions are dynamic here
-        $user_id = $this->session->userdata('user_id');
-        $payment_details = $this->session->userdata('payment_details');
-        $payment_gateway = $this->db->get_where('payment_gateways', ['identifier' => $payment_method])->row_array();
-        $model_name = strtolower($payment_gateway['model_name']);
-        if ($payment_gateway['is_addon'] == 1 && $model_name != null) {
-            $this->load->model('addons/' . strtolower($payment_gateway['model_name']));
-        }
-        if ($model_name != null) {
-            $payment_check_function = 'check_' . $payment_method . '_payment';
-            $response = $this->$model_name->$payment_check_function($payment_method);
-        } else {
-            $response = true;
-        }
-        //ENDED payment model and functions are dynamic here
+        $get_ref = $_GET["ref"] ?? null;
+        $ref = $external_id ? $external_id : $get_ref;
 
-        if ($response === true) {
-            $this->crud_model->enrol_student($user_id);
-            $this->crud_model->course_purchase($user_id, $payment_method, $payment_details['total_payable_amount']);
-            $this->email_model->course_purchase_notification($user_id, $payment_method, $payment_details['total_payable_amount']);
+        $query = $this->db->get_where('invoices', array('invoice_ref' => $ref));
+        $data_invoice = (object) $query->result_array()[0];
 
-            $this->session->set_userdata('cart_items', array());
-            $this->session->set_userdata('payment_details', '');
-            $this->session->set_userdata('applied_coupon', '');
+        $enrol = [];
+        $users_id = $data_invoice->users_id;
 
-            $this->session->set_flashdata('flash_message', site_phrase('payment_successfully_done'));
-            redirect('home/my_courses', 'refresh');
-        } else {
-            $this->session->set_flashdata('error_message', site_phrase('an_error_occurred_during_payment'));
-            redirect('home/shopping_cart', 'refresh');
+        if ($data_invoice->type_curso == 'group') {
+            $query = $this->db->get_where('course_bundle', array('id' => $data_invoice->bundle_id));
+            $data_group = (object) $query->result_array()[0];
+            $enrol = json_decode($data_group->course_ids, true);
+            $this->db->insert('bundle_payment', [
+                "user_id" => $users_id,
+                "bundle_creator_id" => $data_invoice->bundle_creator_id,
+                "bundle_id" => $data_invoice->bundle_id,
+                "payment_method" => 'asaas',
+                "session_id" => '',
+                "transaction_id" => $data_invoice->invoice_id,
+                "amount" => $data_invoice->amount,
+                "date_added" => time(),
+            ]);
         }
+
+        if ($data_invoice->type_curso == 'single') {
+            $enrol = json_decode($data_invoice->course_id, true);
+            foreach ($enrol as $I) {
+                $this->db->insert('payment', [
+                    "user_id" => $users_id,
+                    "payment_type" => $data_invoice->payment_type,
+                    "course_id" => $I,
+                    "amount" => $data_invoice->amount,
+                    "date_added" => time(),
+                    "last_modified" => time(),
+                    "admin_revenue" => $data_invoice->admin_revenue,
+                    "instructor_revenue" => $data_invoice->instructor_revenue,
+                    "tax" => $data_invoice->tax,
+                    "instructor_payment_status" => $data_invoice->instructor_payment_status,
+                    "transaction_id" => $data_invoice->invoice_id,
+                    "session_id" => '',
+                    "coupon" => $data_invoice->coupon,
+                ]);
+            }
+        }
+
+        foreach ($enrol as $ID) {
+            $this->db->insert('enrol', [
+                "user_id" => $users_id,
+                "course_id" => $ID,
+                "date_added" => time(),
+                "last_modified" => time(),
+            ]);
+        }
+
+        echo json_encode([
+            "ref" => $ref,
+            "users_id" => $users_id,
+            "enrol" => $enrol,
+            "invoice" => $data_invoice,
+        ]);
     }
 }
-
-
