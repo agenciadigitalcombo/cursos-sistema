@@ -326,8 +326,7 @@ class Asaas extends CI_Controller
 
         if ($data_invoice->type_curso == 'group') {
             $query = $this->db->get_where('course_bundle', array('id' => $data_invoice->bundle_id));
-            $data_group = (object) $query->result_array()[0];
-            $enrol = json_decode($data_group->course_ids, true);
+            $data_group = (object) $query->result_array()[0];            
             $this->db->insert('bundle_payment', [
                 "user_id" => $users_id,
                 "bundle_creator_id" => $data_invoice->bundle_creator_id,
