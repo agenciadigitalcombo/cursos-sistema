@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * CodeIgniter
  *
@@ -14,38 +14,57 @@
  */
 
 
-if ( ! function_exists('get_user_role'))
-{
-	function get_user_role($type = "", $user_id = '') {
-		$CI	=&	get_instance();
+if (!function_exists('get_user_role')) {
+	function get_user_role($type = "", $user_id = '')
+	{
+		$CI	= &get_instance();
 		$CI->load->database();
 
-        $role_id	=	$CI->db->get_where('users' , array('id' => $user_id))->row()->role_id;
-        $user_role	=	$CI->db->get_where('role' , array('id' => $role_id))->row()->name;
+		$role_id	=	$CI->db->get_where('users', array('id' => $user_id))->row()->role_id;
+		$user_role	=	$CI->db->get_where('role', array('id' => $role_id))->row()->name;
 
-        if ($type == "user_role") {
-            return $user_role;
-        }else {
-            return $role_id;
-        }
+		if ($type == "user_role") {
+			return $user_role;
+		} else {
+			return $role_id;
+		}
 	}
 }
 
 
-if ( ! function_exists('is_purchased'))
-{
-	function is_purchased($course_id = "") {
-		$CI	=&	get_instance();
+if (!function_exists('is_purchased')) {
+	function is_purchased($course_id = "")
+	{
+		$CI	= &get_instance();
 		$CI->load->library('session');
 		$CI->load->database();
 		if ($CI->session->userdata('user_login')) {
-			$enrolled_history = $CI->db->get_where('enrol' , array('user_id' => $CI->session->userdata('user_id'), 'course_id' => $course_id))->num_rows();
+			$enrolled_history = $CI->db->get_where('enrol', array('user_id' => $CI->session->userdata('user_id'), 'course_id' => $course_id))->num_rows();
+			$bundle = $CI->db->get_where('bundle_payment', array(
+				'user_id' => $CI->session->userdata('user_id'),
+			))->result_array();
+			foreach ($bundle as $b) {
+				$bu = $CI->db->get_where('course_bundle', array(
+					'id' => $b['bundle_id'],
+				))->result_array();
+				$limit = $bu[0]['subscription_limit'];
+				$data_pay = $b['date_added'];
+				$soma = strtotime("+{$limit} days", $data_pay);
+				$courses_ids = json_decode($bu[0]['course_ids']);
+				$data_now = time();
+				if ($soma >= $data_now) {
+					if (in_array($course_id, $courses_ids)) {
+						$enrolled_history++;
+					}
+				}				
+			}
+			
 			if ($enrolled_history > 0) {
 				return true;
-			}else {
+			} else {
 				return false;
 			}
-		}else {
+		} else {
 			return false;
 		}
 	}

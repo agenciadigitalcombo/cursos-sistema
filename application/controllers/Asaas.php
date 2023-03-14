@@ -13,7 +13,6 @@ class Asaas extends CI_Controller
         $this->load->library('session');
         $this->load->library('AsaasApi');
 
-
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
         $this->output->set_header('Pragma: no-cache');
     }
