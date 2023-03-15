@@ -26,6 +26,7 @@
             <div class="content-page">
                 <div class="content">
                     <!-- BEGIN PlACE PAGE CONTENT HERE -->
+                    
                     <?php include $logged_in_user_role.'/'.$page_name.'.php';?>
                     <!-- END PLACE PAGE CONTENT HERE -->
                 </div>

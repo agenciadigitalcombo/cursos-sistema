@@ -579,6 +579,17 @@ class Admin extends CI_Controller
         $page_data['purchase_history'] = $this->crud_model->purchase_history();
         $page_data['page_title'] = get_phrase('purchase_history');
         $this->load->view('backend/index', $page_data);
+    }    
+    
+    public function pending_history()
+    {
+        if ($this->session->userdata('admin_login') != true) {
+            redirect(site_url('login'), 'refresh');
+        }
+        $page_data['page_name'] = 'pending_history';
+        $page_data['purchase_history'] = $this->crud_model->pending_history();
+        $page_data['page_title'] = get_phrase('pending_history');
+        $this->load->view('backend/index', $page_data);
     }
 
     public function system_settings($param1 = "")

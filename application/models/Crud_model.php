@@ -258,10 +258,18 @@ class Crud_model extends CI_Model
 
     public function purchase_history($user_id = "")
     {
-        if ($user_id > 0) {
+        if ($user_id > 0) {            
             return $this->db->get_where('payment', array('user_id' => $user_id));
         } else {
             return $this->db->get('payment');
+        }
+    }
+    public function pending_history($user_id = "")
+    {
+        if ($user_id > 0) {            
+            return $this->db->get_where('invoices', array('user_id' => $user_id));
+        } else {
+            return $this->db->get('invoices');
         }
     }
 
