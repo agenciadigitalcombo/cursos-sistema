@@ -135,7 +135,6 @@ class Asaas extends CI_Controller
 
         if (!empty($_POST)) {
 
-
             $res_asaas_transation = [];
             $external_id = "course_" . uniqid();
             $payment_amount = $_POST['total'];
@@ -149,8 +148,6 @@ class Asaas extends CI_Controller
             $tipo_pagamento = $_POST['tipo_pagamento'];
             $seven_day = date('Y-m-d', strtotime('+7 days', strtotime(date('Y-m-d'))));
             $due_date = $tipo_pagamento == "CREDIT_CARD" ? date('Y-m-d') : $seven_day;
-
-            var_dump($this->split);
 
             if ($payment_details['type_curso'] == 'single') {
                 $res_asaas_transation = $this->asaasapi->single(
@@ -193,7 +190,6 @@ class Asaas extends CI_Controller
                     $this->split
                 );
             }
-
 
             $error = $res_asaas_transation["errors"][0]["description"] ?? false;
 
