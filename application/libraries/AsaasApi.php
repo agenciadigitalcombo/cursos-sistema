@@ -325,4 +325,9 @@ class AsaasApi
         return $this->post('/subscriptions', $payload);
     }
 
+    function listSubs(string $id): array
+    {
+        return $this->get("/subscriptions/{$id}/payments", []);
+    }
+
 }

@@ -33,6 +33,7 @@ class Asaas extends CI_Controller
     function buy()
     {
 
+
         $user_id = $this->session->userdata('user_id');
         $payment_details = [];
 
@@ -134,6 +135,7 @@ class Asaas extends CI_Controller
 
         if (!empty($_POST)) {
 
+
             $res_asaas_transation = [];
             $external_id = "course_" . uniqid();
             $payment_amount = $_POST['total'];
@@ -147,6 +149,8 @@ class Asaas extends CI_Controller
             $tipo_pagamento = $_POST['tipo_pagamento'];
             $seven_day = date('Y-m-d', strtotime('+7 days', strtotime(date('Y-m-d'))));
             $due_date = $tipo_pagamento == "CREDIT_CARD" ? date('Y-m-d') : $seven_day;
+
+            var_dump($this->split);
 
             if ($payment_details['type_curso'] == 'single') {
                 $res_asaas_transation = $this->asaasapi->single(
@@ -190,6 +194,7 @@ class Asaas extends CI_Controller
                 );
             }
 
+
             $error = $res_asaas_transation["errors"][0]["description"] ?? false;
 
             $url_assas  = null;
@@ -201,15 +206,36 @@ class Asaas extends CI_Controller
                 $url_assas =  $res_asaas_transation["invoiceUrl"];
                 $code_assas = '';
 
-                if ($_POST['tipo_pagamento'] == 'PIX') {
+                $recorrente = $payment_details['type_curso'] != 'single';
+                if ($recorrente) {
+                    $fatura_id = $res_asaas_transation["id"];
+                    $resCodeListSubs = $this->asaasapi->listSubs($fatura_id);
+                    $recoID = $resCodeListSubs["data"][0]["id"];
+                    $recStatus_pagamento = $resCodeListSubs["data"][0]["status"];
+                }
+
+                if (!$recorrente && $_POST['tipo_pagamento'] == 'PIX') {
                     $code_assas = $this->asaasapi->getCodePix($payment_id);
                     $code_assas = $code_assas["payload"];
                 }
 
-                if ($_POST['tipo_pagamento'] == 'BOLETO') {
+                if (!$recorrente && $_POST['tipo_pagamento'] == 'BOLETO') {
                     $code_assas = $this->asaasapi->getBarcodeBoleto($payment_id);
                     $code_assas = $code_assas["barCode"];
                     $url_assas = $res_asaas_transation["bankSlipUrl"];
+                }
+
+                if ($recorrente && $_POST['tipo_pagamento'] == 'PIX') {
+                    $code_assas = $this->asaasapi->getCodePix($recoID);
+                    $code_assas = $code_assas["payload"];
+                    $res_asaas_transation["status"] =  $recStatus_pagamento;
+                }
+
+                if ($recorrente && $_POST['tipo_pagamento'] == 'BOLETO') {
+                    $code_assas = $this->asaasapi->getBarcodeBoleto($recoID);
+                    $code_assas = $code_assas["barCode"];
+                    $url_assas = $res_asaas_transation["bankSlipUrl"];
+                    $res_asaas_transation["status"] =  $recStatus_pagamento;
                 }
 
                 $_SESSION["invoice"] = [
@@ -248,7 +274,7 @@ class Asaas extends CI_Controller
                     $this->success_course_payment($external_id);
                     $this->db->where('id', $user_id);
                     $this->db->update('users', [
-                        "card_token" => $res_asaas_transation['creditCard']['creditCardToken'] ?? '',                        
+                        "card_token" => $res_asaas_transation['creditCard']['creditCardToken'] ?? '',
                     ]);
                 }
 
@@ -325,7 +351,7 @@ class Asaas extends CI_Controller
 
         if ($data_invoice->type_curso == 'group') {
             $query = $this->db->get_where('course_bundle', array('id' => $data_invoice->bundle_id));
-            $data_group = (object) $query->result_array()[0];            
+            $data_group = (object) $query->result_array()[0];
             $this->db->insert('bundle_payment', [
                 "user_id" => $users_id,
                 "bundle_creator_id" => $data_invoice->bundle_creator_id,
