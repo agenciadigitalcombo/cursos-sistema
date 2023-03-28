@@ -474,12 +474,20 @@ class Email_model extends CI_Model
 
 		//SMTP & mail configuration
 		$config = array(
-			'protocol'  => get_settings('protocol'),
-			'smtp_host' => get_settings('smtp_host'),
-			'smtp_port' => get_settings('smtp_port'),
-			'smtp_user' => get_settings('smtp_user'),
-			'smtp_pass' => get_settings('smtp_pass'),
-			'smtp_crypto' => get_settings('smtp_crypto'), //can be 'ssl' or 'tls' for example
+			'protocol'  => 'smtp',
+			'smtp_host' => 'smtp.hostinger.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'teste@digitalcombo.com.br',
+			'smtp_pass' => 'Seraph@121',
+			'smtp_crypto' => 'ssl', 
+			
+			// 'protocol'  => get_settings('protocol'),
+			// 'smtp_host' => get_settings('smtp_host'),
+			// 'smtp_port' => get_settings('smtp_port'),
+			// 'smtp_user' => get_settings('smtp_user'),
+			// 'smtp_pass' => get_settings('smtp_pass'),
+			// 'smtp_crypto' => get_settings('smtp_crypto'), //can be 'ssl' or 'tls' for example
+			
 			'mailtype'  => 'html',
 			'newline'   => "\r\n",
 			'charset'   => 'utf-8',
@@ -498,7 +506,7 @@ class Email_model extends CI_Model
 
 		//Send email
 		$this->email->send();
-		// echo $this->email->print_debugger();
-		// die();
+		echo $this->email->print_debugger();
+		die();
 	}
 }
