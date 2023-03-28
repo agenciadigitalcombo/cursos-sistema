@@ -501,7 +501,7 @@ class Email_model extends CI_Model
 
 		//Send email
 		$this->email->send();
-		echo $this->email->print_debugger();
-		die();
+		// echo $this->email->print_debugger();
+		// die();
 	}
 }
