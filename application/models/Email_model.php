@@ -474,6 +474,7 @@ class Email_model extends CI_Model
 
 		//SMTP & mail configuration
 		$config = array(
+
 			'protocol'  => 'smtp',
 			'smtp_host' => 'smtp.hostinger.com',
 			'smtp_port' => 465,
@@ -487,7 +488,7 @@ class Email_model extends CI_Model
 			// 'smtp_user' => get_settings('smtp_user'),
 			// 'smtp_pass' => get_settings('smtp_pass'),
 			// 'smtp_crypto' => get_settings('smtp_crypto'), //can be 'ssl' or 'tls' for example
-			
+
 			'mailtype'  => 'html',
 			'newline'   => "\r\n",
 			'charset'   => 'utf-8',
@@ -500,7 +501,8 @@ class Email_model extends CI_Model
 		$this->email->initialize($config);
 
 		$this->email->to($to);
-		$this->email->from($from, get_settings('system_name'));
+		// $this->email->from($from, get_settings('system_name'));
+		$this->email->from('teste@digitalcombo.com.br', 'Teste');
 		$this->email->subject($sub);
 		$this->email->message($msg);
 
