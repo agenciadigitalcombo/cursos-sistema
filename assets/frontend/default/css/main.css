@@ -4842,7 +4842,9 @@ color: #2a303b;
 }
 .home-banner-area {
     padding: 0 !important;
-    background-size: auto 100% !important;    
+    background-size: auto 100% !important;  
+    margin-bottom: -2px;
+    
 }
 
 .home-fact-area {
@@ -4853,4 +4855,8 @@ color: #2a303b;
 }
 .btn:hover {
     filter: brightness(.9) !important;
+}
+.top-categories:hover {
+    background-color: var(--cor-theme) !important;
+    background-image: none !important;
 }

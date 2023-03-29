@@ -1,9 +1,16 @@
+:root {
+    --cor-theme:#4074B8;
+}
+
+
 body, div, ul, li, a, button, td, span{
     font-family: 'Open Sans', sans-serif !important;
 }
 a{
     text-decoration: none;
 }
+
+
 
 .cropped-home-banner{
     position: absolute;
@@ -45,7 +52,7 @@ a{
     align-content: center;
 }
 .top-categories:hover, .top-categories:focus{
-    background-color: #ec5252;
+    background-color: var(--cor-theme);
     background-image: url('../img/category-bg.png');
     background-size: cover;
     background-position: 50%;
@@ -54,7 +61,7 @@ a{
 .category-icon{
     width: 45px;
     height: 45px;
-    background-color: #ec5252;
+    background-color: var(--cor-theme);
     color: #fff;
     border-radius: 50px;
     font-size: 20px;
@@ -205,7 +212,7 @@ ul.footer-social-link li{
     border-top: 1px solid #293e61;
 }
 ul.footer-social-link li.active, ul.footer-social-link li:hover{
-    background-color: #ec5252;
+    background-color: var(--cor-theme);
     transition: all .3s;
 }
 ul.footer-social-link li a{
@@ -406,7 +413,7 @@ section.featured-instructor{
     float: left;
 }
 .skill-level-icon .active{
-    background-color: #ec5252;
+    background-color: var(--cor-theme);
 }
 .skill-level-icon span:first-of-type{
     width: 5px;
@@ -435,7 +442,7 @@ section.featured-instructor{
     border-left: none !important;
 }
 .marge-input-box button{
-    background: #ec5252;
+    background: var(--cor-theme);
     color: #fff;
     font-weight: 500;
     margin: 5px;
@@ -523,8 +530,8 @@ section.featured-instructor{
     padding: 5px 9px 5px 10px !important;
 }
 .common-search-box button{
-    background-color: #ec5252 !important;
-    border-color: #ec5252;
+    background-color: var(--cor-theme) !important;
+    border-color: var(--cor-theme);
     color: #fff;
     padding: 1px 6px;
     border-radius: 6px;
@@ -707,7 +714,7 @@ section.featured-instructor{
 .header-underline-2::before{
     content: "";
     position: absolute;
-    background-color: #ec5252;
+    background-color: var(--cor-theme);
     width: 50%;
     height: 2px;
     border-radius: 2px;
