@@ -84,7 +84,8 @@
             success: function(response) {
                 
                 if (!response) {
-                    window.location.replace("<?php echo site_url('login'); ?>");
+                    // window.location.replace("<?php echo site_url('login'); ?>");
+                    window.location.replace("<?php echo site_url('sign_up'); ?>");
                 } else if ("<?php echo $total_price; ?>" > 0) {
                     // window.location.replace("<?php echo site_url('home/course_payment'); ?>");
                     window.location.href = "<?php echo site_url('asaas/buy?type_curso=single'); ?>";
