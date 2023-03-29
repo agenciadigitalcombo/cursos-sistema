@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col position-relative">
                 <div class="home-banner-wrap">
-                    <h2 class="fw-bold"><?php echo site_phrase(get_frontend_settings('banner_title')); ?></h2>
+                    <h2 class="fw-bold"><?php echo (get_frontend_settings('banner_title')); ?> </h2>
                     <p><?php echo site_phrase(get_frontend_settings('banner_sub_title')); ?></p>
                     <form class="search-box-shadow" action="<?php echo site_url('home/search'); ?>" method="get">
                         <div class="input-group search-box">
