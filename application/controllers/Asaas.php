@@ -256,7 +256,7 @@ class Asaas extends CI_Controller
                     "date_added" => time(),
                     "last_modified" => time(),
                     "admin_revenue" => $payment_amount ?? '',
-                    "instructor_revenue" => 0,
+                    "instructor_revenue" => $payment_amount ?? '',
                     "tax" => 0,
                     "instructor_payment_status" => 1,
                     "transaction_id" => $payment_id ?? '',
