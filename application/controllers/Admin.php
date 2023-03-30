@@ -578,6 +578,14 @@ class Admin extends CI_Controller
         $page_data['page_name'] = 'purchase_history';
         $page_data['purchase_history'] = $this->crud_model->purchase_history();
         $page_data['page_title'] = get_phrase('purchase_history');
+
+        $all = $page_data['purchase_history']->result_array();
+        $total = array_reduce( $all, function( $acc, $i ) {
+            $amount = (float) $i['amount'];
+            return $acc + $amount;
+        }, 0 );
+        
+        $page_data["total"] = number_format($total, 2, ',', '.');
         $this->load->view('backend/index', $page_data);
     }    
     
@@ -589,6 +597,15 @@ class Admin extends CI_Controller
         $page_data['page_name'] = 'pending_history';
         $page_data['purchase_history'] = $this->crud_model->pending_history();
         $page_data['page_title'] = get_phrase('pending_history');
+
+        $all = $page_data['purchase_history']->result_array();
+        $total = array_reduce( $all, function( $acc, $i ) {
+            $amount = (float) $i['amount'];
+            return $acc + $amount;
+        }, 0 );
+        
+        $page_data["total"] = number_format($total, 2, ',', '.');
+
         $this->load->view('backend/index', $page_data);
     }
 

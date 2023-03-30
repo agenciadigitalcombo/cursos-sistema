@@ -10,6 +10,7 @@
 </div>
 
 <div class="card">
+  <h3 style="padding: 10px">Total: R$<?= $total ?></h3>
   <div class="card-body">
     <table id="basic-datatable" class="table table-striped table-centered mb-0">
       <thead>

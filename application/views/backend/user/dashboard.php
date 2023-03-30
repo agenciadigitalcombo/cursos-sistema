@@ -9,6 +9,7 @@
     }
     $total_pending_amount = $this->crud_model->get_total_pending_amount($instructor_id);
     $requested_withdrawal_amount = $this->crud_model->get_requested_withdrawal_amount($instructor_id);
+    
  ?>
 
 <div class="row">
