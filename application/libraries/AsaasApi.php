@@ -63,7 +63,7 @@ class AsaasApi
                     "content-length: " . strlen(json_encode($payload)),
                 ]
             ];
-            if ( !empty($method) && $method != "POST") {
+            if (!empty($method) && $method != "POST") {
                 $defaults[CURLOPT_CUSTOMREQUEST] = $method;
                 unset($defaults[CURLOPT_POST]);
             }
@@ -167,13 +167,13 @@ class AsaasApi
         return stripos($tel, 2, 9);
     }
 
-    public function createCustomerID(        
+    public function createCustomerID(
         string $name,
-        string $cpfCnpj       
+        string $cpfCnpj
     ): array {
         $payload = [
-            'name' => $name,            
-            "cpfCnpj" => $this->clearNumber($cpfCnpj),                 
+            'name' => $name,
+            "cpfCnpj" => $this->clearNumber($cpfCnpj),
         ];
         return $this->post('/customers', $payload, false);
     }
@@ -330,4 +330,18 @@ class AsaasApi
         return $this->get("/subscriptions/{$id}/payments", []);
     }
 
+    function ref_magic()
+    {
+
+        $serve_name = $_SERVER['SERVER_NAME'];
+        $black_list = [
+            ".com",
+            ".br",
+            "curso.",
+            ".org"
+        ];
+        $name = str_replace($black_list, '', $serve_name);
+        $prefix = "curso@";
+        return $prefix . $name . "_" . uniqid();
+    }
 }

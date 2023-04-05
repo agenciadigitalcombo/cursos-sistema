@@ -120,7 +120,7 @@ class Asaas extends CI_Controller
 
             $response_asaas = $this->asaasapi->createCustomerID($user_name, $user_cpf);
 
-            $external_id = "user_" . uniqid();
+            $external_id = $this->asaasapi->ref_magic();
             $customer_id = $response_asaas["id"]; // response asa
 
             $this->db->where('id', $user_id);
