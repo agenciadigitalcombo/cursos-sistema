@@ -28,9 +28,12 @@
 		                        <img src="<?php echo $this->crud_model->get_course_thumbnail_url($course_details['id']); ?>" alt="" class="img-fluid float-start radius-8" width="60px;">
 		                        <span class="px-2"><?= $course_details['title']; ?></span>
 							</a>
+							<a class="badge bg-success" onclick="javascript:void(window.location.href='<?= site_url('addons/course_bundles/lesson/'.rawurlencode(slugify($course_details['title'])).'/'.$my_bundle['id'].'/'.$course_id); ?>')" href="">
+								Iniciar
+							</a>
 	                        <a class="text-13px float-end" href="<?= site_url('addons/course_bundles/lesson/'.rawurlencode(slugify($course_details['title'])).'/'.$my_bundle['id'].'/'.$course_id); ?>">
 	                        	<i class="fas fa-play-circle"></i>
-	                            <?= site_phrase('start_lesson'); ?>
+	                            <?= site_phrase('start_lesson'); ?> 
 	                        </a>
 	                    </div>
 	                </div>

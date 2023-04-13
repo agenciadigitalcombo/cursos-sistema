@@ -35,6 +35,12 @@ class Asaas extends CI_Controller
 
 
         $user_id = $this->session->userdata('user_id');
+        
+        if(empty($user_id)) {
+            echo "<script> window.location.href = \"/sign_up\";  </script>";
+            die();
+        }
+
         $payment_details = [];
 
         $payment_details['total'] = 0;
