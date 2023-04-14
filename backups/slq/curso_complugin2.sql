@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
   `data` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
--- Copiando dados para a tabela curso.ci_sessions: ~10 rows (aproximadamente)
+-- Copiando dados para a tabela curso.ci_sessions: ~12 rows (aproximadamente)
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 	('pnh8q8jmt4bg1c8e2gvbb4lhmrubre32', '::1', 1678390190, _binary 0x5f5f63695f6c6173745f726567656e65726174657c693a313637383339303139303b636f756e7443616c6c7c693a313b5f5f63695f766172737c613a313a7b733a393a22636f756e7443616c6c223b733a333a226e6577223b7d636172745f6974656d737c613a303a7b7d6c616e67756167657c733a373a22656e676c697368223b),
 	('7m1d85jdd8njmsqk49hkpq5tg19267kc', '::1', 1678471818, _binary 0x5f5f63695f6c6173745f726567656e65726174657c693a313637383437313831383b636f756e7443616c6c7c693a313b5f5f63695f766172737c613a313a7b733a393a22636f756e7443616c6c223b733a333a226e6577223b7d636172745f6974656d737c613a303a7b7d6c616e67756167657c733a373a22656e676c697368223b),
@@ -186,7 +186,7 @@ INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 	('5p4d6itlr3uod3009ffgftfgbekbr44j', '::1', 1680199404, _binary 0x5f5f63695f6c6173745f726567656e65726174657c693a313638303139393430333b636f756e7443616c6c7c693a313b5f5f63695f766172737c613a313a7b733a393a22636f756e7443616c6c223b733a333a226e6577223b7d636172745f6974656d737c613a303a7b7d6c616e67756167657c733a373a22656e676c697368223b),
 	('mj8u58t3eonl5f07md73t3hmvfd8fan6', '::1', 1680203746, _binary 0x5f5f63695f6c6173745f726567656e65726174657c693a313638303139393430333b636172745f6974656d737c613a303a7b7d6c616e67756167657c733a393a22706f72747567756573223b637573746f6d5f73657373696f6e5f6c696d69747c693a313638313036373734343b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a31333a224a6f686e20486f66666d616e6e223b69735f696e7374727563746f727c733a313a2231223b61646d696e5f6c6f67696e7c733a313a2231223b7061796d656e745f64657461696c737c613a373a7b733a32303a22746f74616c5f70617961626c655f616d6f756e74223b733a323a223330223b733a353a226974656d73223b613a313a7b693a303b613a393a7b733a393a227061796f75745f6964223b733a313a2231223b733a353a227469746c65223b733a31393a2250617920746f204272756e6f20566965697261223b733a393a227468756d626e61696c223b733a303a22223b733a31303a2263726561746f725f6964223b733a303a22223b733a31333a22646973636f756e745f666c6167223b693a303b733a31363a22646973636f756e7465645f7072696365223b733a323a223330223b733a353a227072696365223b733a323a223330223b733a31323a2261637475616c5f7072696365223b733a323a223330223b733a393a227375625f6974656d73223b613a303a7b7d7d7d733a32383a2269735f696e7374727563746f725f7061796f75745f757365725f6964223b733a313a2234223b733a31333a227061796d656e745f7469746c65223b733a32353a2250617920666f7220696e7374727563746f72207061796f7574223b733a31313a22737563636573735f75726c223b733a35323a22687474703a2f2f637572736f2e746573742f7061796d656e742f737563636573735f696e7374727563746f725f7061796d656e74223b733a31303a2263616e63656c5f75726c223b733a32353a22687474703a2f2f637572736f2e746573742f7061796d656e74223b733a383a226261636b5f75726c223b733a34313a22687474703a2f2f637572736f2e746573742f61646d696e2f696e7374727563746f725f7061796f7574223b7d636f756e7443616c6c7c693a313b5f5f63695f766172737c613a313a7b733a393a22636f756e7443616c6c223b733a333a226f6c64223b7d),
 	('34tn0h70hodnkbs6nkcc4smh1p625olb', '::1', 1680202694, _binary 0x5f5f63695f6c6173745f726567656e65726174657c693a313638303230313033303b636172745f6974656d737c613a303a7b7d6c616e67756167657c733a393a22706f72747567756573223b637573746f6d5f73657373696f6e5f6c696d69747c693a313638313036363034393b757365725f69647c733a313a2234223b726f6c655f69647c733a313a2232223b726f6c657c733a343a2255736572223b6e616d657c733a31323a224272756e6f20566965697261223b69735f696e7374727563746f727c733a313a2231223b757365725f6c6f67696e7c733a313a2231223b5f5f63695f766172737c613a313a7b733a393a22636f756e7443616c6c223b733a333a226f6c64223b7d636f756e7443616c6c7c693a313b),
-	('cuqn3m3v4vhsov523untib9ua09qg1v7', '127.0.0.1', 1681431076, _binary 0x5f5f63695f6c6173745f726567656e65726174657c693a313638303232353736373b636172745f6974656d737c613a303a7b7d6c616e67756167657c733a393a22706f72747567756573223b637573746f6d5f73657373696f6e5f6c696d69747c693a313638323239353037353b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a31333a224a6f686e20486f66666d616e6e223b69735f696e7374727563746f727c733a313a2231223b61646d696e5f6c6f67696e7c733a313a2231223b5f5f63695f766172737c613a313a7b733a393a22636f756e7443616c6c223b733a333a226f6c64223b7d636f756e7443616c6c7c693a313b),
+	('cuqn3m3v4vhsov523untib9ua09qg1v7', '127.0.0.1', 1681434076, _binary 0x5f5f63695f6c6173745f726567656e65726174657c693a313638303232353736373b636172745f6974656d737c613a303a7b7d6c616e67756167657c733a393a22706f72747567756573223b637573746f6d5f73657373696f6e5f6c696d69747c693a313638323239383033343b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a31333a224a6f686e20486f66666d616e6e223b69735f696e7374727563746f727c733a313a2231223b61646d696e5f6c6f67696e7c733a313a2231223b636f756e7443616c6c7c693a313b5f5f63695f766172737c613a313a7b733a393a22636f756e7443616c6c223b733a333a226f6c64223b7d),
 	('89ge7tohescl1j78s4rammq5435d2luu', '127.0.0.1', 1680238055, _binary 0x5f5f63695f6c6173745f726567656e65726174657c693a313638303233383035343b636f756e7443616c6c7c693a313b5f5f63695f766172737c613a313a7b733a393a22636f756e7443616c6c223b733a333a226e6577223b7d636172745f6974656d737c613a303a7b7d6c616e67756167657c733a393a22706f72747567756573223b);
 
 -- Copiando estrutura para tabela curso.comment
@@ -214,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `coupons` (
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
--- Copiando dados para a tabela curso.coupons: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela curso.coupons: ~1 rows (aproximadamente)
 INSERT INTO `coupons` (`id`, `code`, `discount_percentage`, `created_at`, `expiry_date`) VALUES
 	(1, 'BRC', '12', 1678233600, 1680134400);
 
@@ -583,7 +583,7 @@ CREATE TABLE IF NOT EXISTS `language` (
   PRIMARY KEY (`phrase_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1300 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
--- Copiando dados para a tabela curso.language: 1.299 rows
+-- Copiando dados para a tabela curso.language: 1.305 rows
 /*!40000 ALTER TABLE `language` DISABLE KEYS */;
 INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `portugus`, `portugues`) VALUES
 	(1, 'english', 'English', 'English', 'Inglês'),
@@ -1763,7 +1763,7 @@ INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `portugus`, `portugues
 	(1175, 'day', 'Day', 'Day', 'Dia'),
 	(1176, 'hour', 'Hour', 'Hour', 'Hora'),
 	(1177, 'minute', 'Minute', 'Minute', 'Minuto'),
-	(1178, 'second', 'Second', 'Second', 'Second'),
+	(1178, 'second', 'Second', 'Second', 'Segundo'),
 	(1179, 'ago', 'Ago', 'Ago', 'Atrás'),
 	(1180, 'view_all', 'View all', 'View all', 'Ver tudo'),
 	(1181, 'blog_details', NULL, 'Blog details', 'Detalhes do blog'),
@@ -1773,7 +1773,7 @@ INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `portugus`, `portugues
 	(1185, 'add_your_comment', NULL, 'Add your comment', 'Adicione seu comentário'),
 	(1186, 'enter_your_reply', NULL, 'Enter your reply', 'Digite sua resposta'),
 	(1187, 'enter_your_search_string', NULL, 'Enter your search string', 'Digite sua palavra de pesquisa'),
-	(1188, 'popular_categories', NULL, 'Popular categories', 'Popular categories'),
+	(1188, 'popular_categories', NULL, 'Popular categories', 'Categorias populares'),
 	(1189, 'all_categories', NULL, 'All categories', 'Todas as categorias'),
 	(1190, 'configurações_de_tema', NULL, NULL, 'Configurações de tema'),
 	(1191, 'configurações_de_sistema', NULL, NULL, 'Configurações de sistema'),
@@ -1790,22 +1790,22 @@ INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `portugus`, `portugues
 	(1202, 'digital_combo', 'Digital combo', 'Digital combo', 'Digital combo'),
 	(1203, 'adicionar_blog', NULL, NULL, 'Adicionar blog'),
 	(1204, 'blog_pendente', NULL, NULL, 'Blog pendente'),
-	(1205, 'total_pending', 'Total pending', 'Total pending', 'Total pending'),
-	(1206, 'your_blog_will_be_reviewed_for_publication_on_the_website', NULL, 'Your blog will be reviewed for publication on the website', 'Your blog will be reviewed for publication on the website'),
-	(1207, 'thank_you_for_your_blog_submission', NULL, 'Thank you for your blog submission', 'Thank you for your blog submission'),
-	(1208, 'instructors_pending_blog', 'Instructors pending blog', NULL, 'Instructors pending blog'),
-	(1209, 'the_blog_has_been_approved', 'The blog has been approved', NULL, 'The blog has been approved'),
-	(1210, 'search_result', NULL, 'Search result', 'Search result'),
-	(1211, 'blog_deleted_successfully', NULL, 'Blog deleted successfully', 'Blog deleted successfully'),
-	(1212, 'edit_blog', NULL, NULL, 'Edit blog'),
-	(1213, 'edit_your_blog', NULL, NULL, 'Edit your blog'),
-	(1214, 'update_blog', NULL, NULL, 'Update blog'),
-	(1215, 'blog_updated_successfully', NULL, NULL, 'Blog updated successfully'),
+	(1205, 'total_pending', 'Total pending', 'Total pending', 'Total pendente'),
+	(1206, 'your_blog_will_be_reviewed_for_publication_on_the_website', NULL, 'Your blog will be reviewed for publication on the website', 'Seu blog será analisado para publicação no site'),
+	(1207, 'thank_you_for_your_blog_submission', NULL, 'Thank you for your blog submission', 'Obrigado por enviar seu blog'),
+	(1208, 'instructors_pending_blog', 'Instructors pending blog', NULL, 'Instrutores aguardando blog'),
+	(1209, 'the_blog_has_been_approved', 'The blog has been approved', NULL, 'O blog foi aprovado'),
+	(1210, 'search_result', NULL, 'Search result', 'Resultado da pesquisa'),
+	(1211, 'blog_deleted_successfully', NULL, 'Blog deleted successfully', 'Blog excluído com sucesso'),
+	(1212, 'edit_blog', NULL, NULL, 'Editar blog'),
+	(1213, 'edit_your_blog', NULL, NULL, 'Edite seu blog'),
+	(1214, 'update_blog', NULL, NULL, 'Atualizar blog'),
+	(1215, 'blog_updated_successfully', NULL, NULL, 'Blog atualizado com sucesso'),
 	(1216, 'gerenciar_perfil', NULL, NULL, 'Gerenciar perfil'),
-	(1217, 'bundle_purchase_history', NULL, NULL, 'Bundle purchase history'),
-	(1218, 'total_price', NULL, NULL, 'Total price'),
-	(1219, 'subscription_status', NULL, NULL, 'Subscription status'),
-	(1220, 'purchased', NULL, NULL, 'Purchased'),
+	(1217, 'bundle_purchase_history', NULL, NULL, 'Histórico de compra do pacote'),
+	(1218, 'total_price', NULL, NULL, 'Preço total'),
+	(1219, 'subscription_status', NULL, NULL, 'Status de inscrição'),
+	(1220, 'purchased', NULL, NULL, 'Comprado'),
 	(1221, 'gerenciar_pacote_de_cursos', NULL, NULL, 'Gerenciar pacote de cursos'),
 	(1222, 'editar_pacote_de_cursos', NULL, NULL, 'Editar pacote de cursos'),
 	(1223, 'portugus', 'Portugus', 'Portugus', 'Portugus'),
@@ -1817,19 +1817,19 @@ INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `portugus`, `portugues
 	(1229, ',busque_mais_conhecimento_avançado_e_se_torne_um_profissional_avançado_high_level_requisitado_no_mercado', NULL, NULL, ',busque mais conhecimento avançado e se torne um profissional avançado high level requisitado no mercado'),
 	(1230, 'sabedoria_é_uma_das_bases_do_amor!', 'Sabedoria é uma das bases do amor!', 'Sabedoria é uma das bases do amor!', 'Sabedoria é uma das bases do amor!'),
 	(1231, 'vamos_mergulhar_em_ensinamentos_profundos_deixados_por_padre_léo_em_todos_os_momentos_possíveis_junto_conosco!', 'Vamos mergulhar em ensinamentos profundos deixados por padre léo em todos os momentos possíveis junto conosco!', 'Vamos mergulhar em ensinamentos profundos deixados por padre léo em todos os momentos possíveis junto conosco!', 'Vamos mergulhar em ensinamentos profundos deixados por padre léo em todos os momentos possíveis junto conosco!'),
-	(1232, 'change_password', NULL, 'Change password', 'Change password'),
-	(1233, 'enter_your_new_password', NULL, 'Enter your new password', 'Enter your new password'),
-	(1234, 'password_has_changed_successfully', NULL, 'Password has changed successfully', 'Password has changed successfully'),
+	(1232, 'change_password', NULL, 'Change password', 'Alterar a senha'),
+	(1233, 'enter_your_new_password', NULL, 'Enter your new password', 'Digite sua nova senha'),
+	(1234, 'password_has_changed_successfully', NULL, 'Password has changed successfully', 'A senha foi alterada com sucesso'),
 	(1235, 'aluno_editar', NULL, NULL, 'Aluno editar'),
 	(1236, 'matrícula_no_curso', NULL, NULL, 'Matrícula no curso'),
-	(1237, 'student_has_been_enrolled', NULL, NULL, 'Student has been enrolled'),
+	(1237, 'student_has_been_enrolled', NULL, NULL, 'O aluno foi matriculado'),
 	(1238, 'registrar_histórico', NULL, NULL, 'Registrar histórico'),
 	(1239, 'play', NULL, 'Play', NULL),
-	(1240, 'list_of_sections', NULL, NULL, 'List of sections'),
-	(1241, 'sections_have_been_sorted', NULL, NULL, 'Sections have been sorted'),
+	(1240, 'list_of_sections', NULL, NULL, 'Lista de seções'),
+	(1241, 'sections_have_been_sorted', NULL, NULL, 'As seções foram classificadas'),
 	(1242, 'categorias', NULL, NULL, 'Categorias'),
-	(1243, 'you_do_not_have_permission_to_access_this_course', NULL, 'You do not have permission to access this course', NULL),
-	(1244, 'please_complete_your_course_to_get_certificate', NULL, 'Please complete your course to get certificate', NULL),
+	(1243, 'you_do_not_have_permission_to_access_this_course', NULL, 'You do not have permission to access this course', 'Você não tem permissão para acessar este curso'),
+	(1244, 'please_complete_your_course_to_get_certificate', NULL, 'Please complete your course to get certificate', 'Conclua seu curso para obter o certificado'),
 	(1245, 'gerenciador_de_complementos', NULL, NULL, 'Gerenciador de complementos'),
 	(1246, 'complementos_disponíveis', NULL, NULL, 'Complementos disponíveis'),
 	(1247, 'mensagens_privadas', NULL, NULL, 'Mensagens privadas'),
@@ -1840,51 +1840,57 @@ INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `portugus`, `portugues
 	(1252, 'pagamento_do_instrutor', NULL, NULL, 'Pagamento do instrutor'),
 	(1253, 'aplicativo_do_instrutor', NULL, NULL, 'Aplicativo do instrutor'),
 	(1254, 'adicionar_administrador', NULL, NULL, 'Adicionar administrador'),
-	(1255, 'no_search_value_found', NULL, 'No search value found', NULL),
-	(1256, 'make_sure_you_have_logged_in', NULL, 'Make sure you have logged in', NULL),
-	(1257, 'blogs_category', NULL, 'Blogs category', NULL),
-	(1258, 'search_again_with_something_else', NULL, 'Search again with something else', NULL),
-	(1259, 'search_again_with_something_else', NULL, 'Search again with something else', NULL),
-	(1260, 'search_again_with_something_else', NULL, 'Search again with something else', NULL),
-	(1261, 'your_sign_up_form_is_empty', NULL, 'Your sign up form is empty', NULL),
-	(1262, 'fill_out_the_form_with_your_valid_data', NULL, 'Fill out the form with your valid data', NULL),
-	(1263, 'update_user_photo', NULL, 'Update user photo', NULL),
-	(1264, 'profile_photo', NULL, 'Profile photo', NULL),
-	(1265, 'update_your_photo', NULL, 'Update your photo', NULL),
-	(1266, 'upload_image', NULL, 'Upload image', NULL),
-	(1267, 'upload', NULL, 'Upload', NULL),
-	(1268, 'updated_successfully', NULL, 'Updated successfully', NULL),
-	(1269, 'blog_category_deleted_successfully', 'Blog category deleted successfully', NULL, NULL),
-	(1270, 'admin_edit', NULL, NULL, 'Admin edit'),
-	(1271, 'admin_edit_form', NULL, NULL, 'Admin edit form'),
+	(1255, 'no_search_value_found', NULL, 'No search value found', 'Nenhum valor de pesquisa encontrado'),
+	(1256, 'make_sure_you_have_logged_in', NULL, 'Make sure you have logged in', 'Certifique-se de ter feito login'),
+	(1257, 'blogs_category', NULL, 'Blogs category', 'categoria de blogs'),
+	(1258, 'search_again_with_something_else', NULL, 'Search again with something else', 'Pesquise novamente com outra coisa'),
+	(1259, 'search_again_with_something_else', NULL, 'Search again with something else', 'Pesquise novamente com outra coisa'),
+	(1260, 'search_again_with_something_else', NULL, 'Search again with something else', 'Pesquise novamente com outra coisa'),
+	(1261, 'your_sign_up_form_is_empty', NULL, 'Your sign up form is empty', 'Seu formulário de inscrição está vazio'),
+	(1262, 'fill_out_the_form_with_your_valid_data', NULL, 'Fill out the form with your valid data', 'Preencha o formulário com os seus dados válidos'),
+	(1263, 'update_user_photo', NULL, 'Update user photo', 'Atualizar foto do usuário'),
+	(1264, 'profile_photo', NULL, 'Profile photo', 'Foto de perfil'),
+	(1265, 'update_your_photo', NULL, 'Update your photo', 'Atualize sua foto'),
+	(1266, 'upload_image', NULL, 'Upload image', 'Enviar Imagem'),
+	(1267, 'upload', NULL, 'Upload', 'Carregar'),
+	(1268, 'updated_successfully', NULL, 'Updated successfully', 'Atualizado com sucesso'),
+	(1269, 'blog_category_deleted_successfully', 'Blog category deleted successfully', NULL, 'Categoria do blog excluída com sucesso'),
+	(1270, 'admin_edit', NULL, NULL, 'Editar administrador'),
+	(1271, 'admin_edit_form', NULL, NULL, 'Formulário de edição do administrador'),
 	(1272, 'edição_do_instrutor', NULL, NULL, 'Edição do instrutor'),
 	(1273, 'popular_blogs', NULL, NULL, 'Popular blogs'),
 	(1274, 'configura', NULL, NULL, 'Configura'),
 	(1275, 'matr', NULL, NULL, 'Matr'),
 	(1276, 'levando_o_estudo_e_a_forma', 'Levando o estudo e a forma', NULL, 'Levando o estudo e a forma'),
-	(1277, 'issue', NULL, NULL, 'Issue'),
-	(1278, 'you_must_use_an_ssl_supported_server_to_use_the_facebook_login_feature', NULL, NULL, 'You must use an ssl supported server to use the facebook login feature'),
-	(1279, 'relat', NULL, NULL, 'Relat'),
-	(1280, 'enrolled_user', NULL, NULL, 'Enrolled user'),
-	(1281, 'withdrawal_amount', NULL, NULL, 'Withdrawal amount'),
-	(1282, 'withdrawal_amount_has_to_be_less_than_or_equal_to', NULL, NULL, 'Withdrawal amount has to be less than or equal to'),
-	(1283, 'request', NULL, NULL, 'Request'),
-	(1284, 'withdrawal_requested', NULL, NULL, 'Withdrawal requested'),
-	(1285, 'delete_requested_withdrawal', NULL, NULL, 'Delete requested withdrawal'),
-	(1286, 'requested_at', NULL, NULL, 'Requested at'),
-	(1287, 'pay', NULL, NULL, 'Pay'),
-	(1288, 'pay_to', NULL, NULL, 'Pay to'),
-	(1289, 'pay_for_instructor_payout', NULL, NULL, 'Pay for instructor payout'),
-	(1290, 'you_already_requested_a_withdrawal', NULL, NULL, 'You already requested a withdrawal'),
-	(1291, 'if_you_want_to_make_another', NULL, NULL, 'If you want to make another'),
-	(1292, 'you_have_to_delete_the_requested_one_first', NULL, NULL, 'You have to delete the requested one first'),
+	(1277, 'issue', NULL, NULL, 'Emitir'),
+	(1278, 'you_must_use_an_ssl_supported_server_to_use_the_facebook_login_feature', NULL, NULL, 'Você deve usar um servidor compatível com SSL para usar o recurso de login do Facebook'),
+	(1279, 'relat', NULL, NULL, 'Relacionar'),
+	(1280, 'enrolled_user', NULL, NULL, 'usuário registrado'),
+	(1281, 'withdrawal_amount', NULL, NULL, 'Quantidade retirada'),
+	(1282, 'withdrawal_amount_has_to_be_less_than_or_equal_to', NULL, NULL, 'O valor da retirada deve ser menor ou igual a'),
+	(1283, 'request', NULL, NULL, 'Solicitar'),
+	(1284, 'withdrawal_requested', NULL, NULL, 'Retirada solicitada'),
+	(1285, 'delete_requested_withdrawal', NULL, NULL, 'Excluir saque solicitado'),
+	(1286, 'requested_at', NULL, NULL, 'Solicitado em'),
+	(1287, 'pay', NULL, NULL, 'Pagar'),
+	(1288, 'pay_to', NULL, NULL, 'Pagar para'),
+	(1289, 'pay_for_instructor_payout', NULL, NULL, 'Pagar pelo pagamento do instrutor'),
+	(1290, 'you_already_requested_a_withdrawal', NULL, NULL, 'Você já solicitou uma retirada'),
+	(1291, 'if_you_want_to_make_another', NULL, NULL, 'Se você quiser fazer outro'),
+	(1292, 'you_have_to_delete_the_requested_one_first', NULL, NULL, 'Você deve excluir o solicitado primeiro'),
 	(1293, 'hist', NULL, NULL, 'Hist'),
 	(1294, 'levando_o_estudo_e_a_formação_sobre_diversos_assuntos_para_seu_crescimento._cursos_conduzidos_por_grandes_professores_e_especialistas_e_também_homens_e_mulheres_consagrados_a_deus._inscreva-se.', 'Levando o estudo e a formação sobre diversos assuntos para seu crescimento. cursos conduzidos por grandes professores e especialistas e também homens e mulheres consagrados a deus. inscreva-se.', NULL, 'Levando o estudo e a formação sobre diversos assuntos para seu crescimento. cursos conduzidos por grandes professores e especialistas e também homens e mulheres consagrados a deus. inscreva-se.'),
 	(1295, 'adicionar_complemento', NULL, NULL, 'Adicionar complemento'),
-	(1296, 'ticket_list', NULL, NULL, 'Ticket list'),
-	(1297, 'support_category', NULL, NULL, 'Support category'),
+	(1296, 'ticket_list', NULL, NULL, 'lista de ingressos'),
+	(1297, 'support_category', NULL, NULL, 'Categoria de suporte'),
 	(1298, 'macro', NULL, NULL, 'Macro'),
-	(1299, 'create_ticket', NULL, NULL, 'Create ticket');
+	(1299, 'create_ticket', NULL, NULL, 'Criar ticket'),
+	(1300, 'support_categories', NULL, NULL, 'Support categories'),
+	(1301, 'tickets', NULL, NULL, 'Tickets'),
+	(1302, 'opened', NULL, NULL, 'Opened'),
+	(1303, 'closed', NULL, NULL, 'Closed'),
+	(1304, 'ticket_id', NULL, NULL, 'Ticket id'),
+	(1305, 'priority', NULL, NULL, 'Priority');
 /*!40000 ALTER TABLE `language` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela curso.lesson
@@ -1912,7 +1918,7 @@ CREATE TABLE IF NOT EXISTS `lesson` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
--- Copiando dados para a tabela curso.lesson: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela curso.lesson: ~1 rows (aproximadamente)
 INSERT INTO `lesson` (`id`, `title`, `duration`, `course_id`, `section_id`, `video_type`, `cloud_video_id`, `video_url`, `date_added`, `last_modified`, `lesson_type`, `attachment`, `attachment_type`, `caption`, `summary`, `is_free`, `order`, `video_type_for_mobile_application`, `video_url_for_mobile_application`, `duration_for_mobile_application`) VALUES
 	(1, 'intro', '18:00:00', 1, 1, NULL, NULL, 'https://www.youtube.com/watch?v=1EV47HpbtoI', 1677801600, NULL, 'video', NULL, 'url', NULL, '', 1, 0, 'html5', 'https://www.html5rocks.com/en/tutorials/video/basics/devstories.webm', '00:01:10');
 
@@ -1953,7 +1959,7 @@ CREATE TABLE IF NOT EXISTS `message_thread` (
   PRIMARY KEY (`message_thread_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
--- Copiando dados para a tabela curso.message_thread: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela curso.message_thread: ~1 rows (aproximadamente)
 INSERT INTO `message_thread` (`message_thread_id`, `message_thread_code`, `sender`, `receiver`, `last_message_timestamp`) VALUES
 	(1, 'a719631792a88f7', '2', '1', NULL);
 
@@ -2009,7 +2015,7 @@ CREATE TABLE IF NOT EXISTS `payment_gateways` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
--- Copiando dados para a tabela curso.payment_gateways: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela curso.payment_gateways: ~1 rows (aproximadamente)
 INSERT INTO `payment_gateways` (`id`, `identifier`, `currency`, `title`, `description`, `keys`, `model_name`, `enabled_test_mode`, `status`, `is_addon`, `created_at`, `updated_at`) VALUES
 	(10, 'asaas', 'BRL', 'Asaas', '', '{\r\n    "token_production": "$aact_YTU5YTE0M2M2N2I4MTliNzk0YTI5N2U5MzdjNWZmNDQ6OjAwMDAwMDAwMDAwMDAwMjQ4MDM6OiRhYWNoX2ZjOTY2ZmRjLWJiZGYtNGVjYi1iNzk2LWY2NjRiOTk4OTU5MA==",\r\n    "token_sandbox": "$aact_YTU5YTE0M2M2N2I4MTliNzk0YTI5N2U5MzdjNWZmNDQ6OjAwMDAwMDAwMDAwMDAwMjQ4MDM6OiRhYWNoX2ZjOTY2ZmRjLWJiZGYtNGVjYi1iNzk2LWY2NjRiOTk4OTU5MA==",\r\n    "split_percent_1": "3,5%",\r\n    "carteira_id_1": "1854fa4d-da97-4ab0-8a51-152ec2c17833",    \r\n    "split_percent_2": "3,5%",\r\n    "carteira_id_2": "1854fa4d-da97-4ab0-8a51-152ec2c17833",\r\n    "split_percent_3": "3,5%",\r\n    "carteira_id_3": "1854fa4d-da97-4ab0-8a51-152ec2c17833"\r\n}', 'Payment_model', 1, 1, 0, '', '1678214464');
 
@@ -2025,7 +2031,7 @@ CREATE TABLE IF NOT EXISTS `payout` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
--- Copiando dados para a tabela curso.payout: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela curso.payout: ~1 rows (aproximadamente)
 INSERT INTO `payout` (`id`, `user_id`, `payment_type`, `amount`, `date_added`, `last_modified`, `status`) VALUES
 	(1, 4, NULL, 30, 1680134400, NULL, 0);
 
@@ -2109,7 +2115,7 @@ CREATE TABLE IF NOT EXISTS `section` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
--- Copiando dados para a tabela curso.section: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela curso.section: ~1 rows (aproximadamente)
 INSERT INTO `section` (`id`, `title`, `course_id`, `order`) VALUES
 	(1, 'introdução', 1, 0);
 
@@ -2175,9 +2181,9 @@ INSERT INTO `settings` (`id`, `key`, `value`) VALUES
 	(55, 'paytm_keys', '[{"PAYTM_MERCHANT_KEY":"PAYTM_MERCHANT_KEY","PAYTM_MERCHANT_MID":"PAYTM_MERCHANT_MID","PAYTM_MERCHANT_WEBSITE":"DEFAULT","INDUSTRY_TYPE_ID":"Retail","CHANNEL_ID":"WEB"}]'),
 	(57, 'google_analytics_id', ''),
 	(58, 'meta_pixel_id', ''),
-	(59, 'randCallRange', '17'),
-	(60, 'randCallRange', '17'),
-	(61, 'randCallRange', '17'),
+	(59, 'randCallRange', '15'),
+	(60, 'randCallRange', '15'),
+	(61, 'randCallRange', '15'),
 	(62, 'certificate_template', 'This is to certify that Mr. / Ms. {student} successfully completed the course with on certificate for {course}.'),
 	(63, 'certificate-text-positons', '\n			&lt;div class=&quot;this-template&quot; style=&quot;width: 750px; position: relative;&quot;&gt;\n				&lt;img width=&quot;100%&quot; src=&quot;..\\..\\uploads/certificates/template.jpg&quot;&gt;\n				&lt;div class=&quot;draggable instructor_name&quot; style=&quot;position: absolute; font-family: &amp;quot;Miss Fajardose&amp;quot;; font-size: 40px; top: 373.892px; left: 553.889px;&quot;&gt;{instructor}&lt;/div&gt;&lt;div class=&quot;draggable course_level&quot; style=&quot;position: absolute;font-size: 16px;top: 444.861px;left: 84.8681px;&quot;&gt;{course_level}&lt;/div&gt;\n&lt;div class=&quot;draggable course_language&quot; style=&quot;position: absolute; font-size: 16px; top: 155.84px; left: 65.8473px;&quot;&gt;{course_language}&lt;/div&gt;\n&lt;div class=&quot;draggable student_name&quot; style=&quot;position: absolute; font-family: &amp;quot;Miss Fajardose&amp;quot;, cursive; font-size: 40px; top: 373.92px; left: 59.9063px;&quot;&gt;{student}&lt;/div&gt;\n&lt;div class=&quot;draggable duration_name&quot; style=&quot;position: absolute; font-size: 16px; top: 341.837px; left: 328.806px;&quot;&gt;{total_duration}&lt;/div&gt;\n&lt;div class=&quot;draggable lesson_name&quot; style=&quot;position: absolute;font-size: 16px;top: 341.882px;left: 124.868px;&quot;&gt;{total_lesson}&lt;/div&gt;\n				&lt;div class=&quot;draggable course_completion_date&quot; style=&quot;position: absolute; font-size: 20px; top: 151.924px; left: 543.896px;&quot;&gt;{date}&lt;/div&gt;\n				&lt;div class=&quot;draggable certificate_text&quot; style=&quot;position: absolute;width: 500px;text-align: center;font-size: 28px;top: 228.948px;font-family: &amp;quot;Pinyon Script&amp;quot;;left: 123.903px;&quot;&gt;This is to certify that Mr. / Ms. {student} successfully completed the course with on certificate for {course}.&lt;/div&gt;\n				&lt;div class=&quot;draggable qrCode&quot; style=&quot;position: absolute; width: 65px; height: 65px; text-align: center; font-size: 20px; top: 76.9202px; left: 594.924px;&quot;&gt;&lt;p style=&quot;text-align: center; padding: 4px 0px;&quot;&gt;Qr code&lt;/p&gt;&lt;/div&gt;\n			&lt;/div&gt;\n																																																																																				');
 
@@ -2305,7 +2311,7 @@ CREATE TABLE IF NOT EXISTS `watch_histories` (
   PRIMARY KEY (`watch_history_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
--- Copiando dados para a tabela curso.watch_histories: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela curso.watch_histories: ~1 rows (aproximadamente)
 INSERT INTO `watch_histories` (`watch_history_id`, `course_id`, `student_id`, `completed_lesson`, `course_progress`, `watching_lesson_id`, `quiz_result`, `date_added`, `date_updated`) VALUES
 	(1, 1, 2, '["1"]', 100, 1, '', '1677865981', '1677866026');
 
