@@ -1,0 +1,173 @@
+{
+    "name" : "Ebook",
+    "unique_identifier" : "ebook",
+    "version" : "1.0",
+    "about" : "An ebook (short for electronic book), also known as an e-book or eBook, is a book publication made available in digital form, consisting of text, images, or both, readable on the flat-panel display of computers or other electronic devices.[1] Although sometimes defined as an electronic version of a printed book,[2] some e-books exist without a printed equivalent. E-books can be read on dedicated e-reader devices, but also on any computer device that features a controllable viewing screen, including desktop computers, laptops, tablets, and smartphones.",
+    "directories" :
+    [
+        {
+            "name" : "uploads/ebook"
+        },
+        {
+            "name" : "uploads/ebook/banner"
+        },
+        {
+            "name" : "uploads/ebook/ebook_photo"
+        },
+        {
+            "name" : "uploads/ebook/file"
+        },
+        {
+            "name" : "uploads/ebook/file/ebook_full"
+        },
+        {
+            "name" : "uploads/ebook/file/ebook_preview"
+        },
+        {
+            "name" : "uploads/ebook/thumbnails"
+        },
+        {
+            "name" : "uploads/ebook/thumbnails/category_thumbnails"
+        },
+        {
+            "name" : "application/views/ebook_payment"
+        },
+        {
+            "name" : "application/views/ebook_payment/paypal"
+        },
+        {
+            "name" : "application/views/ebook_payment/razorpay"
+        },
+        {
+            "name" : "application/views/ebook_payment/stripe"
+        }
+    ],
+    "sql_file"  : "updater.php",
+    "files"     :
+    [
+        {
+            "root_directory"    : "uploads/addons/ebook/controllers/addons/Ebook.php",
+            "update_directory"  : "application/controllers/addons/Ebook.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/controllers/addons/Ebook_manager.php",
+            "update_directory"  : "application/controllers/addons/Ebook_manager.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/models/addons/Ebook_model.php",
+            "update_directory"  : "application/models/addons/Ebook_model.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/backend/admin/add_ebook.php",
+            "update_directory"  : "application/views/backend/admin/add_ebook.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/backend/admin/all_ebooks.php",
+            "update_directory"  : "application/views/backend/admin/all_ebooks.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/backend/admin/ebook_admin_revenue.php",
+            "update_directory"  : "application/views/backend/admin/ebook_admin_revenue.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/backend/admin/ebook_category.php",
+            "update_directory"  : "application/views/backend/admin/ebook_category.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/backend/admin/ebook_category_add.php",
+            "update_directory"  : "application/views/backend/admin/ebook_category_add.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/backend/admin/ebook_category_edit.php",
+            "update_directory"  : "application/views/backend/admin/ebook_category_edit.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/backend/admin/ebook_edit.php",
+            "update_directory"  : "application/views/backend/admin/ebook_edit.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/backend/admin/ebook_instructor_revenue.php",
+            "update_directory"  : "application/views/backend/admin/ebook_instructor_revenue.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/backend/admin/ebook_payment_history.php",
+            "update_directory"  : "application/views/backend/admin/ebook_payment_history.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/backend/user/add_ebook.php",
+            "update_directory"  : "application/views/backend/user/add_ebook.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/backend/user/all_ebooks.php",
+            "update_directory"  : "application/views/backend/user/all_ebooks.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/backend/user/ebook_edit.php",
+            "update_directory"  : "application/views/backend/user/ebook_edit.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/backend/user/ebook_instructor_revenue.php",
+            "update_directory"  : "application/views/backend/user/ebook_instructor_revenue.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/ebook_payment/paypal/paypal_checkout.php",
+            "update_directory"  : "application/views/ebook_payment/paypal/paypal_checkout.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/ebook_payment/razorpay/razorpay_checkout.php",
+            "update_directory"  : "application/views/ebook_payment/razorpay/razorpay_checkout.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/ebook_payment/stripe/stripe_checkout.php",
+            "update_directory"  : "application/views/ebook_payment/stripe/stripe_checkout.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/ebook_payment/stripe/stripe_payment_gateway_form.php",
+            "update_directory"  : "application/views/ebook_payment/stripe/stripe_payment_gateway_form.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/ebook_payment/eu-cookie.php",
+            "update_directory"  : "application/views/ebook_payment/eu-cookie.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/ebook_payment/go_back_to_mobile_app.php",
+            "update_directory"  : "application/views/ebook_payment/go_back_to_mobile_app.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/ebook_payment/includes_bottom.php",
+            "update_directory"  : "application/views/ebook_payment/includes_bottom.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/ebook_payment/includes_top.php",
+            "update_directory"  : "application/views/ebook_payment/includes_top.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/ebook_payment/index.php",
+            "update_directory"  : "application/views/ebook_payment/index.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/ebook_payment/payment_gateway.php",
+            "update_directory"  : "application/views/ebook_payment/payment_gateway.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/frontend/default/ebook_details.php",
+            "update_directory"  : "application/views/frontend/default/ebook_details.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/frontend/default/ebook_invoice.php",
+            "update_directory"  : "application/views/frontend/default/ebook_invoice.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/frontend/default/ebook_page.php",
+            "update_directory"  : "application/views/frontend/default/ebook_page.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/frontend/default/ebook_rating.php",
+            "update_directory"  : "application/views/frontend/default/ebook_rating.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/ebook/views/frontend/default/my_ebooks.php",
+            "update_directory"  : "application/views/frontend/default/my_ebooks.php"
+        }
+    ]
+}

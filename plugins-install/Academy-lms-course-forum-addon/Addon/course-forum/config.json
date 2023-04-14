@@ -1,0 +1,41 @@
+{
+    "name" : "Course Forum",
+    "unique_identifier" : "forum",
+    "version" : "1.1",
+    "about" : "It opportunity the user to any questions or answers about courses.",
+    "directories" :
+    [],
+    "sql_file"  : "updater.php",
+    "files"     :
+    [
+        {
+            "root_directory"    : "uploads/addons/course-forum/controllers/addons/Course_forum.php",
+            "update_directory"  : "application/controllers/addons/Course_forum.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/course-forum/models/addons/Course_forum_model.php",
+            "update_directory"  : "application/models/addons/Course_forum_model.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/course-forum/views/lessons/add_new_question_form.php",
+            "update_directory"  : "application/views/lessons/add_new_question_form.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/course-forum/views/lessons/course_forum.php",
+            "update_directory"  : "application/views/lessons/course_forum.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/course-forum/views/lessons/course_forum_scripts.php",
+            "update_directory"  : "application/views/lessons/course_forum_scripts.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/course-forum/views/lessons/question_comments.php",
+            "update_directory"  : "application/views/lessons/question_comments.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/course-forum/views/lessons/show_more_questions.php",
+            "update_directory"  : "application/views/lessons/show_more_questions.php"
+        }
+        
+    ]
+}

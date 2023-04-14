@@ -1,0 +1,81 @@
+{
+    "name" : "Customer Support",
+    "unique_identifier" : "customer_support",
+    "version" : "1.0",
+    "about" : "Customer Support allows you to help customer about their issues with your products.",
+    "directories" :
+    [
+        {
+            "name" : "uploads/support_files"
+        }
+    ],
+    "sql_file"  : "updater.php",
+    "files"     :
+    [
+        {
+            "root_directory"    : "uploads/addons/customer-support/controllers/addons/Customer_support.php",
+            "update_directory"  : "application/controllers/addons/Customer_support.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/models/addons/Customer_support_model.php",
+            "update_directory"  : "application/models/addons/Customer_support_model.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/admin/add_support_category_form.php",
+            "update_directory"  : "application/views/backend/admin/add_support_category_form.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/admin/add_support_macro_form.php",
+            "update_directory"  : "application/views/backend/admin/add_support_macro_form.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/admin/change_priority_form.php",
+            "update_directory"  : "application/views/backend/admin/change_priority_form.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/admin/closed_tickets.php",
+            "update_directory"  : "application/views/backend/admin/closed_tickets.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/admin/create_ticket.php",
+            "update_directory"  : "application/views/backend/admin/create_ticket.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/admin/edit_support_category_form.php",
+            "update_directory"  : "application/views/backend/admin/edit_support_category_form.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/admin/opened_tickets.php",
+            "update_directory"  : "application/views/backend/admin/opened_tickets.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/admin/support_categories.php",
+            "update_directory"  : "application/views/backend/admin/support_categories.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/admin/support_macros.php",
+            "update_directory"  : "application/views/backend/admin/support_macros.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/admin/tickets.php",
+            "update_directory"  : "application/views/backend/admin/tickets.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/admin/view_ticket.php",
+            "update_directory"  : "application/views/backend/admin/view_ticket.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/user/create_ticket.php",
+            "update_directory"  : "application/views/backend/user/create_ticket.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/user/tickets.php",
+            "update_directory"  : "application/views/backend/user/tickets.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/customer-support/views/backend/user/view_ticket.php",
+            "update_directory"  : "application/views/backend/user/view_ticket.php"
+        }
+        
+    ]
+}

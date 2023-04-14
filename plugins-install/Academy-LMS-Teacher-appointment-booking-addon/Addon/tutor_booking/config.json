@@ -1,0 +1,407 @@
+{
+    "name" : "Tutor Booking",
+    "unique_identifier" : "tutor_booking",
+    "version" : "1.0",
+    "about" : "This tutor booking addon helps student to book a tuition form a instructor for a specific time",
+    "directories" :
+    [
+        
+        {
+            "name" : "assets/frontend/default/tutor_booking/new/css/vendors"
+        },
+        {
+            "name" : "assets/frontend/default/tutor_booking/new/css/webfonts"
+        },
+        {
+            "name" : "assets/frontend/default/tutor_booking/new/fonts"
+        },
+        {
+            "name" : "assets/frontend/default/tutor_booking/new/image"
+        },
+        {
+            "name" : "assets/frontend/default/tutor_booking/new/js"
+        },
+        {
+            "name" : "application/views/tutor_booking_payment/razorpay"
+        },
+        {
+            "name" : "application/views/tutor_booking_payment/stripe"
+        }
+    ],
+    "sql_file"  : "updater.php",
+    "files"     :
+    [
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/controllers/addons/Tutor_booking.php",
+            "update_directory"  : "application/controllers/addons/Tutor_booking.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/models/addons/Tutor_booking_model.php",
+            "update_directory"  : "application/models/addons/Tutor_booking_model.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/frontend/default/booked_schedule_student.php",
+            "update_directory"  : "application/views/frontend/default/booked_schedule_student.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/frontend/default/list_of_tuitions.php",
+            "update_directory"  : "application/views/frontend/default/list_of_tuitions.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/frontend/default/tutor_live_class.php",
+            "update_directory"  : "application/views/frontend/default/tutor_live_class.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/frontend/default/tutor_details.php",
+            "update_directory"  : "application/views/frontend/default/tutor_details.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/add_schedule.php",
+            "update_directory"  : "application/views/backend/user/add_schedule.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/booked_schedule_details.php",
+            "update_directory"  : "application/views/backend/user/booked_schedule_details.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/edit_schedule.php",
+            "update_directory"  : "application/views/backend/user/edit_schedule.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/edit_tutor_booking.php",
+            "update_directory"  : "application/views/backend/user/edit_tutor_booking.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/edit_tutor_schedule.php",
+            "update_directory"  : "application/views/backend/user/edit_tutor_schedule.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/tutor_booking_list.php",
+            "update_directory"  : "application/views/backend/user/tutor_booking_list.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/tutor_categories.php",
+            "update_directory"  : "application/views/backend/user/tutor_categories.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/tutor_category_add.php",
+            "update_directory"  : "application/views/backend/user/tutor_category_add.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/tutor_category_edit.php",
+            "update_directory"  : "application/views/backend/user/tutor_category_edit.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/tutor_inactive_booking_list.php",
+            "update_directory"  : "application/views/backend/user/tutor_inactive_booking_list.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/tutor_inactive_schedule_list.php",
+            "update_directory"  : "application/views/backend/user/tutor_inactive_schedule_list.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/tutor_live_class_settings.php",
+            "update_directory"  : "application/views/backend/user/tutor_live_class_settings.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/tutor_schedule_list.php",
+            "update_directory"  : "application/views/backend/user/tutor_schedule_list.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/user/tutor_side_live_class.php",
+            "update_directory"  : "application/views/backend/user/tutor_side_live_class.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/add_schedule.php",
+            "update_directory"  : "application/views/backend/admin/add_schedule.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/booked_schedule_details.php",
+            "update_directory"  : "application/views/backend/admin/booked_schedule_details.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/edit_schedule.php",
+            "update_directory"  : "application/views/backend/admin/edit_schedule.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/edit_tutor_booking.php",
+            "update_directory"  : "application/views/backend/admin/edit_tutor_booking.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/edit_tutor_schedule.php",
+            "update_directory"  : "application/views/backend/admin/edit_tutor_schedule.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/tutor_booking_list.php",
+            "update_directory"  : "application/views/backend/admin/tutor_booking_list.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/tutor_categories.php",
+            "update_directory"  : "application/views/backend/admin/tutor_categories.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/tutor_category_add.php",
+            "update_directory"  : "application/views/backend/admin/tutor_category_add.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/tutor_category_edit.php",
+            "update_directory"  : "application/views/backend/admin/tutor_category_edit.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/tutor_inactive_booking_list.php",
+            "update_directory"  : "application/views/backend/admin/tutor_inactive_booking_list.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/tutor_inactive_schedule_list.php",
+            "update_directory"  : "application/views/backend/admin/tutor_inactive_schedule_list.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/tutor_live_class_settings.php",
+            "update_directory"  : "application/views/backend/admin/tutor_live_class_settings.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/tutor_schedule_list.php",
+            "update_directory"  : "application/views/backend/admin/tutor_schedule_list.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/backend/admin/tutor_side_live_class.php",
+            "update_directory"  : "application/views/backend/admin/tutor_side_live_class.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/tutor_booking_payment/razorpay/razorpay_checkout.php",
+            "update_directory"  : "application/views/tutor_booking_payment/razorpay/razorpay_checkout.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/tutor_booking_payment/stripe/stripe_checkout.php",
+            "update_directory"  : "application/views/tutor_booking_payment/stripe/stripe_checkout.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/tutor_booking_payment/stripe/stripe_payment_gateway_form.php",
+            "update_directory"  : "application/views/tutor_booking_payment/stripe/stripe_payment_gateway_form.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/tutor_booking_payment/eu-cookie.php",
+            "update_directory"  : "application/views/tutor_booking_payment/eu-cookie.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/tutor_booking_payment/go_back_to_mobile_app.php",
+            "update_directory"  : "application/views/tutor_booking_payment/go_back_to_mobile_app.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/tutor_booking_payment/includes_bottom.php",
+            "update_directory"  : "application/views/tutor_booking_payment/includes_bottom.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/tutor_booking_payment/includes_top.php",
+            "update_directory"  : "application/views/tutor_booking_payment/includes_top.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/tutor_booking_payment/index.php",
+            "update_directory"  : "application/views/tutor_booking_payment/index.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/tutor_booking_payment/payment_gateway.php",
+            "update_directory"  : "application/views/tutor_booking_payment/payment_gateway.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/views/tutor_booking_payment/paypal_checkout.php",
+            "update_directory"  : "application/views/tutor_booking_payment/paypal_checkout.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/vendors/all.min.css",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/vendors/all.min.css"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/vendors/bootstrap.min.css",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/vendors/bootstrap.min.css"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/vendors/bootstrap.min.css.bak",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/vendors/bootstrap.min.css.bak"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/vendors/select2.min.css",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/vendors/select2.min.css"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/vendors/swiper-bundle.min.css",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/vendors/swiper-bundle.min.css"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/webfonts/fa-brands-400.ttf",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/webfonts/fa-brands-400.ttf"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/webfonts/fa-brands-400.woff2",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/webfonts/fa-brands-400.woff2"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/webfonts/fa-regular-400.ttf",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/webfonts/fa-regular-400.ttf"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/webfonts/fa-regular-400.woff2",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/webfonts/fa-regular-400.woff2"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/webfonts/fa-solid-900.ttf",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/webfonts/fa-solid-900.ttf"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/webfonts/fa-solid-900.woff2",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/webfonts/fa-solid-900.woff2"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/webfonts/fa-v4compatibility.ttf",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/webfonts/fa-v4compatibility.ttf"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/webfonts/fa-v4compatibility.woff2",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/webfonts/fa-v4compatibility.woff2"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/_details.scss",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/_details.scss"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/style.css",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/style.css"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/style.css.map",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/style.css.map"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/style.scss",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/style.scss"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Black.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Black.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Black_Italic.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Black_Italic.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Bold.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Bold.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Bold_Italic.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Bold_Italic.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Heavy.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Heavy.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Heavy_Italic.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Heavy_Italic.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Italic.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Italic.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Light.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Light.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Light_Italic.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Light_Italic.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Medium.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Medium.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Medium_Italic.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Medium_Italic.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Roman.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Roman.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Thin Italic.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Thin Italic.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Thin.woff",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/fonts/Swiss_721_Thin.woff"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/image/arrow-down.svg",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/image/arrow-down.svg"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/image/clock.svg",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/image/clock.svg"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/image/filter.svg",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/image/filter.svg"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/image/left.svg",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/image/left.svg"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/image/no_result_found.png",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/image/no_result_found.png"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/image/quality.svg",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/image/quality.svg"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/image/repeatStudents.svg",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/image/repeatStudents.svg"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/image/right.svg",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/image/right.svg"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/image/search-icon-2.png",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/image/search-icon-2.png"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/image/share.svg",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/image/share.svg"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/js/bootstrap.bundle.min.js",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/js/bootstrap.bundle.min.js"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/js/o7bmtay5.js",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/js/o7bmtay5.js"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/js/jquery.nestable.min.js",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/js/jquery.nestable.min.js"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/css/jquery.nestable.min.css",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/css/jquery.nestable.min.css"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/js/bootstrap.bundle.min.js.bak",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/js/bootstrap.bundle.min.js.bak"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/js/jquery.min.js",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/js/jquery.min.js"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/js/select2.min.js",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/js/select2.min.js"
+        },
+        {
+            "root_directory"    : "uploads/addons/tutor_booking/assets/frontend/default/tutor_booking/new/js/swiper-bundle.min.js",
+            "update_directory"  : "assets/frontend/default/tutor_booking/new/js/swiper-bundle.min.js"
+        }
+    ]
+}

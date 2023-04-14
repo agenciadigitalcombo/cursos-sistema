@@ -1,0 +1,68 @@
+{
+    "name" : "Noticeboard",
+    "unique_identifier" : "noticeboard",
+    "version" : "1.0",
+    "about" : "You can display notifications for students enrolled in your course, and you can also send important notifications to their emails using this add-on.",
+    "directories" :
+    [],
+    "sql_file"  : "updater.php",
+    "files"     :
+    [
+        {
+            "root_directory"    : "uploads/addons/noticeboard/controllers/addons/Noticeboard.php",
+            "update_directory"  : "application/controllers/addons/Noticeboard.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/noticeboard/models/addons/Noticeboard_model.php",
+            "update_directory"  : "application/models/addons/Noticeboard_model.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/noticeboard/views/lessons/noticeboard_body.php",
+            "update_directory"  : "application/views/lessons/noticeboard_body.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/noticeboard/views/lessons/noticeboard_scripts.php",
+            "update_directory"  : "application/views/lessons/noticeboard_scripts.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/noticeboard/views/backend/admin/noticeboard_form_edit.php",
+            "update_directory"  : "application/views/backend/admin/noticeboard_form_edit.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/noticeboard/views/backend/admin/noticeboard_form.php",
+            "update_directory"  : "application/views/backend/admin/noticeboard_form.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/noticeboard/views/backend/admin/noticeboard_list.php",
+            "update_directory"  : "application/views/backend/admin/noticeboard_list.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/noticeboard/views/backend/admin/noticeboard_scripts.php",
+            "update_directory"  : "application/views/backend/admin/noticeboard_scripts.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/noticeboard/views/backend/admin/noticeboard.php",
+            "update_directory"  : "application/views/backend/admin/noticeboard.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/noticeboard/views/backend/user/noticeboard_form_edit.php",
+            "update_directory"  : "application/views/backend/user/noticeboard_form_edit.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/noticeboard/views/backend/user/noticeboard_form.php",
+            "update_directory"  : "application/views/backend/user/noticeboard_form.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/noticeboard/views/backend/user/noticeboard_list.php",
+            "update_directory"  : "application/views/backend/user/noticeboard_list.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/noticeboard/views/backend/user/noticeboard_scripts.php",
+            "update_directory"  : "application/views/backend/user/noticeboard_scripts.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/noticeboard/views/backend/user/noticeboard.php",
+            "update_directory"  : "application/views/backend/user/noticeboard.php"
+        }
+    ]
+}

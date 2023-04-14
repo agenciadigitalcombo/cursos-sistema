@@ -1,0 +1,103 @@
+{
+    "name" : "Course Affiliate Addon",
+    "unique_identifier" : "affiliate_course",
+    "version" : "1.0",
+    "about" : "This affiliate addon helps to increase your course sales and engage more students",
+    "directories" :
+    [
+        
+        {
+            "name" : "assets/image"
+        },
+        {
+            "name" : "uploads/document"
+        },
+        {
+            "name" : "assets/affiliate_css"
+        }
+    ],
+    "sql_file"  : "updater.php",
+    "files"     :
+    [
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/controllers/addons/Affiliate_course.php",
+            "update_directory"  : "application/controllers/addons/Affiliate_course.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/models/addons/Affiliate_course_model.php",
+            "update_directory"  : "application/models/addons/Affiliate_course_model.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/frontend/default/affiliate_course_modal.php",
+            "update_directory"  : "application/views/frontend/default/affiliate_course_modal.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/frontend/default/affiliate_course_history.php",
+            "update_directory"  : "application/views/frontend/default/affiliate_course_history.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/backend/user/affiliator_application_form.php",
+            "update_directory"  : "application/views/backend/user/affiliator_application_form.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/backend/user/affiliator_application_list.php",
+            "update_directory"  : "application/views/backend/user/affiliator_application_list.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/backend/user/become_an_affiliator.php",
+            "update_directory"  : "application/views/backend/user/become_an_affiliator.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/backend/admin/active_affiliator.php",
+            "update_directory"  : "application/views/backend/admin/active_affiliator.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/backend/admin/affiliate_addon_settings.php",
+            "update_directory"  : "application/views/backend/admin/affiliate_addon_settings.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/backend/admin/affiliation_course_payouts.php",
+            "update_directory"  : "application/views/backend/admin/affiliation_course_payouts.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/backend/admin/affiliator_add.php",
+            "update_directory"  : "application/views/backend/admin/affiliator_add.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/backend/admin/course_affiliation_history.php",
+            "update_directory"  : "application/views/backend/admin/course_affiliation_history.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/backend/admin/paypal_checkout_for_affiliate_course_addon.php",
+            "update_directory"  : "application/views/backend/admin/paypal_checkout_for_affiliate_course_addon.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/backend/admin/pending_affiliator.php",
+            "update_directory"  : "application/views/backend/admin/pending_affiliator.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/backend/admin/razorpay_checkout_for_affiliate_course_addon.php",
+            "update_directory"  : "application/views/backend/admin/razorpay_checkout_for_affiliate_course_addon.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/backend/admin/stripe_checkout_for_affiliate_course_addon.php",
+            "update_directory"  : "application/views/backend/admin/stripe_checkout_for_affiliate_course_addon.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/views/backend/admin/suspend_affiliator.php",
+            "update_directory"  : "application/views/backend/admin/suspend_affiliator.php"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/assets/image/no_data_found.png",
+            "update_directory"  : "assets/image/no_data_found.png"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/assets/affiliate_css/html2canvas.min.js",
+            "update_directory"  : "assets/affiliate_css/html2canvas.min.js"
+        },
+        {
+            "root_directory"    : "uploads/addons/academy_lms_affiliate_addon/assets/affiliate_css/pdfmake.min.js",
+            "update_directory"  : "assets/affiliate_css/pdfmake.min.js"
+        }
+    ]
+}
