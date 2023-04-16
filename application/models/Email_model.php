@@ -12,7 +12,7 @@ class Email_model extends CI_Model
 	{
 		$to_name = $this->db->get_where('users', array('email' => $to))->row_array();
 
-		$email_data['subject'] = "Verify email address";
+		$email_data['subject'] = "Verificar endereço de e-mail";
 		$email_data['from'] = get_settings('system_email');
 		$email_data['to'] = $to;
 		$email_data['to_name'] = $to_name['first_name'] . ' ' . $to_name['last_name'];
@@ -26,11 +26,11 @@ class Email_model extends CI_Model
 	{
 		$query = $this->db->get_where('users', array('email' => $email));
 		if ($query->num_rows() > 0) {
-			$email_data['subject'] = "Password reset request";
+			$email_data['subject'] = "Solicitação de redefinição de senha";
 			$email_data['from'] = get_settings('system_email');
 			$email_data['to'] = $email;
 			$email_data['to_name'] = $query->row('first_name') . ' ' . $query->row('last_name');
-			$email_data['message'] = 'You have requested a change of password from ' . get_settings('system_name') . '. Please change your new password from this link : <b style="cursor: pointer;"><u>' . site_url('login/change_password/') . $verification_code . '</u></b><br><br><p>Please use this link in under 15 minutes.</p>';
+			$email_data['message'] = 'Você solicitou uma alteração de senha de ' . get_settings('system_name') . '. Por favor, altere sua nova senha neste link : <b style="cursor: pointer;"><u>' . site_url('login/change_password/') . $verification_code . '</u></b><br><br><p>Use este link em menos de 15 minutos.</p>';
 			$email_template = $this->load->view('email/common_template', $email_data, TRUE);
 			$this->send_smtp_mail($email_template, $email_data['subject'], $email_data['to'], $email_data['from']);
 			return true;
@@ -126,13 +126,13 @@ class Email_model extends CI_Model
 		$student_details = $this->user_model->get_all_user($student_id);
 		$instructor_details = $this->user_model->get_all_user($course_details['user_id'])->row_array();
 		$student_msg = "<h2>" . $course_details['title'] . "</h2>";
-		$student_msg .= "<p><b>Congratulation!!</b> You have purchased a <b>" . $course_details['title'] . "</b> course.</p>";
+		$student_msg .= "<p><b>Parabéns!!</b> Você comprou <b>" . $course_details['title'] . "</b> curso.</p>";
 		$student_msg .= "<hr style='opacity: .4;'>";
-		$student_msg .= "<p><b>Course owner:</b></p>";
-		$student_msg .= "<p>Name: <b>" . $instructor_details['first_name'] . " " . $instructor_details['last_name'] . "</b></p>";
+		$student_msg .= "<p><b>Criados do Curso:</b></p>";
+		$student_msg .= "<p>Nome: <b>" . $instructor_details['first_name'] . " " . $instructor_details['last_name'] . "</b></p>";
 		$student_msg .= "<p>Email: <b>" . $instructor_details['email'] . "</b></p>";
 
-		$email_data['subject'] = 'Course Purchase';
+		$email_data['subject'] = 'Compra de curso';
 		$email_data['from'] = get_settings('system_email');
 		$email_data['to'] = $student_details->row('email');
 		$email_data['to_name'] = $student_details->row('first_name') . ' ' . $student_details->row('last_name');
@@ -151,9 +151,9 @@ class Email_model extends CI_Model
 		$certificate_link = site_url('certificate/' . $result['shareable_url']);
 		$course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 		$user_details = $this->user_model->get_all_user($user_id)->row_array();
-		$email_msg = "<b>Congratulations!!</b> " . $user_details['first_name'] . " " . $user_details['last_name'] . ",";
-		$email_msg .= "<p>You have successfully completed the course named, <b>" . $course_details['title'] . ".</b></p>";
-		$email_msg .= "<p>You can get your course completion certificate from here <b>" . $certificate_link . ".</b></p>";
+		$email_msg = "<b>Parabéns!!</b> " . $user_details['first_name'] . " " . $user_details['last_name'] . ",";
+		$email_msg .= "<p>Você concluiu com sucesso o curso chamado, <b>" . $course_details['title'] . ".</b></p>";
+		$email_msg .= "<p>Você pode obter seu certificado de conclusão de curso aqui <b>" . $certificate_link . ".</b></p>";
 		$email_data['subject'] = 'Course Completion Notification';
 		$email_data['from'] = get_settings('system_email');
 		$email_data['to'] = $user_details['email'];
@@ -237,14 +237,14 @@ class Email_model extends CI_Model
 	function bundle_purchase_notification_student($bundle_details = "", $admin_details = "", $bundle_creator_details = "", $student_details = "")
 	{
 		$email_msg = "<h2>" . $bundle_details['title'] . "</h2>";
-		$email_msg .= "<p><b>Congratulation!!</b> You have purchased a <b>" . $bundle_details['title'] . "</b> bundle.</p>";
-		$email_msg .= "<h3><b><u><span style='color: #2ec75e;'>Bundle Price : " . currency($bundle_details['price']) . "</span></u></b></h3>";
+		$email_msg .= "<p><b>Parabéns!!</b> Você comprou um <b>" . $bundle_details['title'] . "</b> pacote.</p>";
+		$email_msg .= "<h3><b><u><span style='color: #2ec75e;'>Preço do pacote : " . currency($bundle_details['price']) . "</span></u></b></h3>";
 		$email_msg .= "<hr style='opacity: .4;'>";
-		$email_msg .= "<p><b>Bundle owner:</b></p>";
+		$email_msg .= "<p><b>Criador do pacote:</b></p>";
 		$email_msg .= "<p>Name: <b>" . $bundle_creator_details['first_name'] . " " . $bundle_creator_details['last_name'] . "</b></p>";
 		$email_msg .= "<p>Email: <b>" . $bundle_creator_details['email'] . "</b></p>";
 
-		$email_data['subject'] = 'Bundle Purchase';
+		$email_data['subject'] = 'Compra de pacote';
 		$email_data['from'] = get_settings('system_email');
 		$email_data['to'] = $student_details['email'];
 		$email_data['to_name'] = $student_details['first_name'] . ' ' . $student_details['last_name'];
