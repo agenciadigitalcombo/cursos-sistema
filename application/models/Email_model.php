@@ -30,7 +30,7 @@ class Email_model extends CI_Model
 			$email_data['from'] = get_settings('system_email');
 			$email_data['to'] = $email;
 			$email_data['to_name'] = $query->row('first_name') . ' ' . $query->row('last_name');
-			$email_data['message'] = 'Você solicitou uma alteração de senha de ' . get_settings('system_name') . '. Por favor, altere sua nova senha neste link : <b style="cursor: pointer;"><u>' . site_url('login/change_password/') . $verification_code . '</u></b><br><br><p>Use este link em menos de 15 minutos.</p>';
+			$email_data['message'] = 'Você solicitou uma alteração de senha de ' . get_settings('system_name') . '. Por favor, altere sua nova senha neste link : <b style="cursor: pointer;"><u><a href="' . site_url('login/change_password/') . $verification_code . '">' . site_url('login/change_password/') . $verification_code . '</a></u></b><br><br><p>Use este link em menos de 15 minutos.</p>';
 			$email_template = $this->load->view('email/common_template', $email_data, TRUE);
 			$this->send_smtp_mail($email_template, $email_data['subject'], $email_data['to'], $email_data['from']);
 			return true;
